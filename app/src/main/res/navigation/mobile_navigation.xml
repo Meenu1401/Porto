@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_news">
+
+    <fragment
+        android:id="@+id/navigation_news"
+        android:name="com.example.myapplication.ui.news.NewsFragment"
+        android:label="@string/title_news"
+        tools:layout="@layout/fragment_news" />
+
+    <fragment
+        android:id="@+id/navigation_market"
+        android:name="com.example.myapplication.ui.market.MarketFragment"
+        android:label="@string/title_market"
+        tools:layout="@layout/fragment_market" />
+
+    <fragment
+        android:id="@+id/navigation_watchlist"
+        android:name="com.example.myapplication.ui.watchlist.WatchListFragment"
+        android:label="@string/title_watchlist"
+        tools:layout="@layout/fragment_watchlist" />
+
+    <fragment
+        android:id="@+id/navigation_portfolio"
+        android:name="com.example.myapplication.ui.portfolio.PortfolioFragment"
+        android:label="@string/title_Portfolio"
+        tools:layout="@layout/fragment_portfolio">
+        <action
+            android:id="@+id/action_navigation_portfolio_to_login_fragment2"
+            app:popUpTo="@id/navigation_news"
+            app:destination="@id/login_fragment" />
+        <action
+            android:id="@+id/action_navigation_portfolio_to_navigation_market"
+            app:destination="@id/navigation_market" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/login_fragment"
+        android:name="com.example.myapplication.ui.login.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/loginpage"/>
+
+
+</navigation>

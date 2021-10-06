@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="title_news">News</string>
+    <string name="title_market">Market</string>
+    <string name="title_watchlist">Watchlist</string>
+    <string name="title_Portfolio">Portfolio</string>
+</resources>
