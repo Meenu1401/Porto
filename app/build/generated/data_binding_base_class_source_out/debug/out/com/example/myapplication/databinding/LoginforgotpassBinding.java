@@ -27,17 +27,21 @@ public final class LoginforgotpassBinding implements ViewBinding {
   public final EditText edit1;
 
   @NonNull
+  public final TextView sendCode;
+
+  @NonNull
   public final TextView tv2;
 
   @NonNull
   public final TextView tvget;
 
   private LoginforgotpassBinding(@NonNull ConstraintLayout rootView,
-      @NonNull ConstraintLayout container, @NonNull EditText edit1, @NonNull TextView tv2,
-      @NonNull TextView tvget) {
+      @NonNull ConstraintLayout container, @NonNull EditText edit1, @NonNull TextView sendCode,
+      @NonNull TextView tv2, @NonNull TextView tvget) {
     this.rootView = rootView;
     this.container = container;
     this.edit1 = edit1;
+    this.sendCode = sendCode;
     this.tv2 = tv2;
     this.tvget = tvget;
   }
@@ -77,6 +81,12 @@ public final class LoginforgotpassBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.send_code;
+      TextView sendCode = ViewBindings.findChildViewById(rootView, id);
+      if (sendCode == null) {
+        break missingId;
+      }
+
       id = R.id.tv2;
       TextView tv2 = ViewBindings.findChildViewById(rootView, id);
       if (tv2 == null) {
@@ -89,7 +99,8 @@ public final class LoginforgotpassBinding implements ViewBinding {
         break missingId;
       }
 
-      return new LoginforgotpassBinding((ConstraintLayout) rootView, container, edit1, tv2, tvget);
+      return new LoginforgotpassBinding((ConstraintLayout) rootView, container, edit1, sendCode,
+          tv2, tvget);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

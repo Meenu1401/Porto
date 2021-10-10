@@ -30,10 +30,13 @@ public final class LoginpageBinding implements ViewBinding {
   public final EditText edit2;
 
   @NonNull
-  public final TextView fg1;
+  public final TextView forgotPass;
 
   @NonNull
   public final TextView loginBtn;
+
+  @NonNull
+  public final TextView signup;
 
   @NonNull
   public final TextView tv2;
@@ -42,14 +45,16 @@ public final class LoginpageBinding implements ViewBinding {
   public final TextView tvget;
 
   private LoginpageBinding(@NonNull ConstraintLayout rootView, @NonNull ConstraintLayout container,
-      @NonNull EditText edit1, @NonNull EditText edit2, @NonNull TextView fg1,
-      @NonNull TextView loginBtn, @NonNull TextView tv2, @NonNull TextView tvget) {
+      @NonNull EditText edit1, @NonNull EditText edit2, @NonNull TextView forgotPass,
+      @NonNull TextView loginBtn, @NonNull TextView signup, @NonNull TextView tv2,
+      @NonNull TextView tvget) {
     this.rootView = rootView;
     this.container = container;
     this.edit1 = edit1;
     this.edit2 = edit2;
-    this.fg1 = fg1;
+    this.forgotPass = forgotPass;
     this.loginBtn = loginBtn;
+    this.signup = signup;
     this.tv2 = tv2;
     this.tvget = tvget;
   }
@@ -95,15 +100,21 @@ public final class LoginpageBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.fg1;
-      TextView fg1 = ViewBindings.findChildViewById(rootView, id);
-      if (fg1 == null) {
+      id = R.id.forgot_pass;
+      TextView forgotPass = ViewBindings.findChildViewById(rootView, id);
+      if (forgotPass == null) {
         break missingId;
       }
 
       id = R.id.loginBtn;
       TextView loginBtn = ViewBindings.findChildViewById(rootView, id);
       if (loginBtn == null) {
+        break missingId;
+      }
+
+      id = R.id.signup;
+      TextView signup = ViewBindings.findChildViewById(rootView, id);
+      if (signup == null) {
         break missingId;
       }
 
@@ -119,8 +130,8 @@ public final class LoginpageBinding implements ViewBinding {
         break missingId;
       }
 
-      return new LoginpageBinding((ConstraintLayout) rootView, container, edit1, edit2, fg1,
-          loginBtn, tv2, tvget);
+      return new LoginpageBinding((ConstraintLayout) rootView, container, edit1, edit2, forgotPass,
+          loginBtn, signup, tv2, tvget);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
