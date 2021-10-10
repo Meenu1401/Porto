@@ -23,6 +23,7 @@
         android:label="@string/title_watchlist"
         tools:layout="@layout/fragment_watchlist" />
 
+
     <fragment
         android:id="@+id/navigation_portfolio"
         android:name="com.example.myapplication.ui.portfolio.PortfolioFragment"
@@ -42,7 +43,48 @@
         android:id="@+id/login_fragment"
         android:name="com.example.myapplication.ui.login.LoginFragment"
         android:label="fragment_login"
-        tools:layout="@layout/loginpage"/>
+        tools:layout="@layout/loginpage">
+
+        <action
+            android:id="@+id/action_login_fragment_to_forgot_fragment2"
+            app:destination="@id/forgot_fragment" />
+        <action
+            android:id="@+id/action_login_fragment_to_signup_fragment"
+            app:destination="@id/signup_fragment" />
+        <action
+            android:id="@+id/action_login_fragment_to_navigation_portfolio_detail"
+            app:destination="@id/navigation_portfolio_detail" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/signup_fragment"
+        android:name="com.example.myapplication.ui.login.SignUpFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/loginsignuppage"/>
+
+    <fragment
+        android:id="@+id/navigation_portfolio_detail"
+        android:name="com.example.myapplication.ui.portfolio.PortfolioDetailFragment"
+        android:label="fragment_portfolio_detail"
+        tools:layout="@layout/fragment_portfolio"/>
+
+    <fragment
+        android:id="@+id/forgot_fragment"
+        android:name="com.example.myapplication.ui.login.ForgotPassFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/loginforgotpass">
+
+        <action
+            android:id="@+id/action_forgot_fragment_to_reset_password_fragment"
+            app:destination="@id/reset_password_fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/reset_password_fragment"
+        android:name="com.example.myapplication.ui.login.ResetPassFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/loginresetpass"/>
 
 
 </navigation>

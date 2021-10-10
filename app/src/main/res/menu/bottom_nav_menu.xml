@@ -1,23 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
         android:id="@+id/navigation_news"
         android:icon="@drawable/ic_news_24"
+        app:labelVisibilityMode="labeled"
         android:title="@string/title_news" />
 
     <item
         android:id="@+id/navigation_market"
         android:icon="@drawable/ic_market_24"
+        app:labelVisibilityMode="labeled"
         android:title="@string/title_market" />
 
     <item
         android:id="@+id/navigation_watchlist"
         android:icon="@drawable/ic_watchlist2_24"
+        app:labelVisibilityMode="labeled"
         android:title="@string/title_watchlist" />
 
     <item
         android:id="@+id/navigation_portfolio"
         android:icon="@drawable/ic_portfolio_24"
+        app:labelVisibilityMode="labeled"
         android:title="@string/title_Portfolio" />
 </menu>

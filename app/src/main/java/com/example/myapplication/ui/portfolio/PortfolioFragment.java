@@ -42,8 +42,6 @@ public class PortfolioFragment extends Fragment {
         portfolioViewModel.getText().observe(getViewLifecycleOwner(), s -> {
             if(s.isEmpty())
                 navController.navigate(R.id.action_navigation_portfolio_to_login_fragment2);
-            else
-                navController.navigate(R.id.navigation_portfolio);
         });
     }
 

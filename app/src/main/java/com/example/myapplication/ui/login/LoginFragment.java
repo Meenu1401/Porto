@@ -11,9 +11,11 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.SavedStateHandle;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 
+import com.example.myapplication.R;
 import com.example.myapplication.databinding.LoginpageBinding;
 import com.example.myapplication.ui.portfolio.PortfolioViewModel;
 
@@ -24,6 +26,7 @@ public class LoginFragment extends Fragment {
     private PortfolioViewModel portfolioViewModel;
     private SavedStateHandle savedStateHandle;
     private LoginpageBinding binding;
+    private NavController navController;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,10 +48,19 @@ public class LoginFragment extends Fragment {
                 .getPreviousBackStackEntry()
                 .getSavedStateHandle();
         savedStateHandle.set(LOGIN_SUCCESSFUL, false);
+        navController = Navigation.findNavController(view);
         binding.loginBtn.setOnClickListener(v -> {
             String username = binding.edit1.getText().toString();
             String password = binding.edit2.getText().toString();
             login(username, password);
+        });
+
+        binding.signup.setOnClickListener(v->{
+            navController.navigate(R.id.action_login_fragment_to_signup_fragment);
+        });
+
+        binding.forgotPass.setOnClickListener(v->{
+            navController.navigate(R.id.action_login_fragment_to_forgot_fragment2);
         });
     }
 
@@ -57,6 +69,7 @@ public class LoginFragment extends Fragment {
             if (result) {
                 savedStateHandle.set(LOGIN_SUCCESSFUL, true);
                 NavHostFragment.findNavController(this).popBackStack();
+               // navController.navigate(R.id.action_login_fragment_to_navigation_portfolio_detail);
             } else {
                 showErrorMessage();
             }
