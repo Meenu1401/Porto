@@ -14,10 +14,20 @@ import androidx.navigation.Navigation;
 
 import com.example.myapplication.R;
 import com.example.myapplication.databinding.FragmentPortfolioBinding;
+import com.example.myapplication.databinding.FragmentPortfolioDetailBinding;
+
+
+//API
+// top table : https://myjson.dit.upm.es/api/bins/7v99
+// stock table :http://myjson.dit.upm.es/api/bins/eigd
+// mf table :http://myjson.dit.upm.es/api/bins/f6dh
+
+
+
 
 public class PortfolioDetailFragment extends Fragment {
 
-    private FragmentPortfolioBinding binding;
+    private FragmentPortfolioDetailBinding binding;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -27,7 +37,7 @@ public class PortfolioDetailFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        binding = FragmentPortfolioBinding.inflate(inflater, container, false);
+        binding = FragmentPortfolioDetailBinding.inflate(inflater, container, false);
         return binding.getRoot();
     }
 

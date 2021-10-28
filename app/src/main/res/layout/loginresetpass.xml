@@ -71,7 +71,7 @@
         android:layout_width="match_parent"
         android:text="Verify and Reset"
         android:gravity="center"
-        android:background="@color/purple_500"
+        android:background="@color/zee_color_500"
         android:layout_marginLeft="40dp"
         android:layout_marginRight="40dp"
         android:layout_marginTop="80dp"

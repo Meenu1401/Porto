@@ -1,55 +1,57 @@
 com/example/myapplication/ui/portfolio/PortfolioViewModel.java
  com.example.myapplication.ui.portfolio.PortfolioViewModel
-com/example/myapplication/ui/news/NewsFragment.java
- com.example.myapplication.ui.news.NewsFragment
-com/example/myapplication/ui/watchlist/WatchListFragment.java
- com.example.myapplication.ui.watchlist.WatchListFragment
- com.example.myapplication.ui.watchlist.WatchListFragment$1
-com/example/myapplication/ui/news/NewsViewModel.java
- com.example.myapplication.ui.news.NewsViewModel
-com/example/myapplication/ui/watchlist/WatchListViewModel.java
- com.example.myapplication.ui.watchlist.WatchListViewModel
-com/example/myapplication/ui/market/MarketFragment.java
- com.example.myapplication.ui.market.MarketFragment
- com.example.myapplication.ui.market.MarketFragment$1
-com/example/myapplication/ui/market/MarketViewModel.java
- com.example.myapplication.ui.market.MarketViewModel
-com/example/myapplication/BuildConfig.java
- com.example.myapplication.BuildConfig
-com/example/myapplication/ui/login/ForgotPassFragment.java
- com.example.myapplication.ui.login.ForgotPassFragment
-com/example/myapplication/ui/portfolio/PortfolioFragment.java
- com.example.myapplication.ui.portfolio.PortfolioFragment
-com/example/myapplication/databinding/FragmentNewsBinding.java
- com.example.myapplication.databinding.FragmentNewsBinding
-com/example/myapplication/MainActivity.java
- com.example.myapplication.MainActivity
 com/example/myapplication/databinding/LoginsignuppageBinding.java
  com.example.myapplication.databinding.LoginsignuppageBinding
 com/example/myapplication/ui/login/SignUpFragment.java
  com.example.myapplication.ui.login.SignUpFragment
+com/example/myapplication/ui/news/NewsViewModel.java
+ com.example.myapplication.ui.news.NewsViewModel
+com/example/myapplication/ui/watchlist/WatchListViewModel.java
+ com.example.myapplication.ui.watchlist.WatchListViewModel
 com/example/myapplication/ui/login/OTPFragment.java
  com.example.myapplication.ui.login.OTPFragment
 com/example/myapplication/databinding/LoginpageBinding.java
  com.example.myapplication.databinding.LoginpageBinding
-com/example/myapplication/ui/portfolio/PortfolioDetailFragment.java
- com.example.myapplication.ui.portfolio.PortfolioDetailFragment
+com/example/myapplication/databinding/FragmentPortfolioDetailBinding.java
+ com.example.myapplication.databinding.FragmentPortfolioDetailBinding
 com/example/myapplication/databinding/FragmentWatchlistBinding.java
  com.example.myapplication.databinding.FragmentWatchlistBinding
+com/example/myapplication/ui/login/ResetPassFragment.java
+ com.example.myapplication.ui.login.ResetPassFragment
+com/example/myapplication/ui/login/ForgotPassFragment.java
+ com.example.myapplication.ui.login.ForgotPassFragment
+com/example/myapplication/ui/portfolio/PortfolioFragment.java
+ com.example.myapplication.ui.portfolio.PortfolioFragment
+com/example/myapplication/ui/portfolio/PortfolioDetailFragment.java
+ com.example.myapplication.ui.portfolio.PortfolioDetailFragment
+com/example/myapplication/MainActivity.java
+ com.example.myapplication.MainActivity
+com/example/myapplication/ui/login/LoginFragment.java
+ com.example.myapplication.ui.login.LoginFragment
+com/example/myapplication/ui/market/MarketViewModel.java
+ com.example.myapplication.ui.market.MarketViewModel
+com/example/myapplication/BuildConfig.java
+ com.example.myapplication.BuildConfig
 com/example/myapplication/databinding/LoginforgotpassBinding.java
  com.example.myapplication.databinding.LoginforgotpassBinding
 com/example/myapplication/databinding/FragmentPortfolioBinding.java
  com.example.myapplication.databinding.FragmentPortfolioBinding
 com/example/myapplication/databinding/ActivityMainBinding.java
  com.example.myapplication.databinding.ActivityMainBinding
-com/example/myapplication/ui/login/ResetPassFragment.java
- com.example.myapplication.ui.login.ResetPassFragment
-com/example/myapplication/databinding/FragmentMarketBinding.java
- com.example.myapplication.databinding.FragmentMarketBinding
+com/example/myapplication/ui/market/MarketFragment.java
+ com.example.myapplication.ui.market.MarketFragment
+ com.example.myapplication.ui.market.MarketFragment$1
+com/example/myapplication/ui/watchlist/WatchListFragment.java
+ com.example.myapplication.ui.watchlist.WatchListFragment
+ com.example.myapplication.ui.watchlist.WatchListFragment$1
 com/example/myapplication/ui/utility/OtpEditText.java
  com.example.myapplication.ui.utility.OtpEditText
  com.example.myapplication.ui.utility.OtpEditText$1
+com/example/myapplication/databinding/FragmentMarketBinding.java
+ com.example.myapplication.databinding.FragmentMarketBinding
+com/example/myapplication/ui/news/NewsFragment.java
+ com.example.myapplication.ui.news.NewsFragment
 com/example/myapplication/databinding/LoginresetpassBinding.java
  com.example.myapplication.databinding.LoginresetpassBinding
-com/example/myapplication/ui/login/LoginFragment.java
- com.example.myapplication.ui.login.LoginFragment
+com/example/myapplication/databinding/FragmentNewsBinding.java
+ com.example.myapplication.databinding.FragmentNewsBinding
