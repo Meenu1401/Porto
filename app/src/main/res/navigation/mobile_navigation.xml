@@ -36,6 +36,11 @@
         <action
             android:id="@+id/action_navigation_portfolio_to_navigation_market"
             app:destination="@id/navigation_market" />
+
+        <action
+            android:id="@+id/action_navigation_portfolio_to_navigation_detail"
+            app:popUpTo="@id/navigation_news"
+            app:destination="@id/navigation_detail" />
     </fragment>
 
 
@@ -52,8 +57,11 @@
             android:id="@+id/action_login_fragment_to_signup_fragment"
             app:destination="@id/signup_fragment" />
         <action
-            android:id="@+id/action_login_fragment_to_navigation_portfolio_detail"
-            app:destination="@id/navigation_portfolio_detail" />
+            android:id="@+id/action_login_to_navigation_detail"
+            app:destination="@id/navigation_detail"
+            app:popUpTo="@id/login_fragment"
+            app:popUpToInclusive="true"
+         />
     </fragment>
 
 
@@ -64,9 +72,9 @@
         tools:layout="@layout/loginsignuppage"/>
 
     <fragment
-        android:id="@+id/navigation_portfolio_detail"
+        android:id="@+id/navigation_detail"
         android:name="com.example.myapplication.ui.portfolio.PortfolioDetailFragment"
-        android:label="fragment_portfolio_detail"
+        android:label="fragment_login"
         tools:layout="@layout/fragment_portfolio"/>
 
     <fragment

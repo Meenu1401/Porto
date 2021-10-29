@@ -4,18 +4,17 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
 import com.example.myapplication.R;
 import com.example.myapplication.databinding.FragmentPortfolioBinding;
+import com.example.myapplication.ui.AppPreference;
 
 public class PortfolioFragment extends Fragment {
 
@@ -40,8 +39,14 @@ public class PortfolioFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         final NavController navController = Navigation.findNavController(view);
         portfolioViewModel.getText().observe(getViewLifecycleOwner(), s -> {
-            if(s.isEmpty())
+            if (!AppPreference.getInstance().getString(AppPreference.USER_NAME).isEmpty() &&
+                    !AppPreference.getInstance().getString(AppPreference.PASSWORD).isEmpty()){
+                //do nothing need to bind view on same fragment
+                navController.navigate(R.id.action_navigation_portfolio_to_navigation_detail);
+            }
+            else {
                 navController.navigate(R.id.action_navigation_portfolio_to_login_fragment2);
+            }
         });
     }
 
