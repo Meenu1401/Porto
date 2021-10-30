@@ -12,7 +12,9 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.myapplication.databinding.FragmentPortfolioDetailBinding;
+import com.example.myapplication.ui.adapters.MFAdapter;
 import com.example.myapplication.ui.adapters.StocksAdapter;
+import com.example.myapplication.ui.adapters.SummaryDataAdapter;
 import com.example.myapplication.ui.models.Items;
 import com.example.myapplication.ui.retrofit.RetrofitClient;
 
@@ -50,7 +52,9 @@ public class PortfolioDetailFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        getData();
+        getTopTable();
+        getStockTable();
+        getMFTable();
         binding.daysGain.setOnClickListener(view1 -> {
             if(isSelected){
 
@@ -66,17 +70,59 @@ public class PortfolioDetailFragment extends Fragment {
         binding = null;
     }
 
-    private void getData() {
-        Call<Items> call = RetrofitClient.getInstance().getMyApi().getsuperHeroes();
+    private void getTopTable() {
+        Call<Items> call = RetrofitClient.getInstance().getMyApi().getTopTable();
+
+        call.enqueue(new Callback<Items>() {
+            @Override
+            public void onResponse(Call<Items> call, Response<Items> response) {
+                Items myheroList = response.body();
+                SummaryDataAdapter adapter = new SummaryDataAdapter(myheroList.getList());
+                binding.recyclerTop.setHasFixedSize(true);
+                binding.recyclerTop.setLayoutManager(new LinearLayoutManager(requireContext()));
+                binding.recyclerTop.setAdapter(adapter);
+            }
+
+            @Override
+            public void onFailure(Call<Items> call, Throwable t) {
+                Toast.makeText(getContext(), "An error has occured", Toast.LENGTH_LONG).show();
+            }
+
+        });
+    }
+
+    private void getStockTable() {
+        Call<Items> call = RetrofitClient.getInstance().getMyApi().getStockTable();
 
         call.enqueue(new Callback<Items>() {
             @Override
             public void onResponse(Call<Items> call, Response<Items> response) {
                 Items myheroList = response.body();
                 StocksAdapter adapter = new StocksAdapter(myheroList.getList());
-                binding.recyclerTop.setHasFixedSize(true);
-                binding.recyclerTop.setLayoutManager(new LinearLayoutManager(requireContext()));
-                binding.recyclerTop.setAdapter(adapter);
+                binding.recyclerStock.setHasFixedSize(true);
+                binding.recyclerStock.setLayoutManager(new LinearLayoutManager(requireContext()));
+                binding.recyclerStock.setAdapter(adapter);
+            }
+
+            @Override
+            public void onFailure(Call<Items> call, Throwable t) {
+                Toast.makeText(getContext(), "An error has occured", Toast.LENGTH_LONG).show();
+            }
+
+        });
+    }
+
+    private void getMFTable() {
+        Call<Items> call = RetrofitClient.getInstance().getMyApi().getMFTable();
+
+        call.enqueue(new Callback<Items>() {
+            @Override
+            public void onResponse(Call<Items> call, Response<Items> response) {
+                Items myheroList = response.body();
+                MFAdapter adapter = new MFAdapter(myheroList.getList());
+                binding.recyclerMf.setHasFixedSize(true);
+                binding.recyclerMf.setLayoutManager(new LinearLayoutManager(requireContext()));
+                binding.recyclerMf.setAdapter(adapter);
             }
 
             @Override

@@ -13,5 +13,11 @@ public interface Api {
     String BASE_URL = "https://myjson.dit.upm.es/api/";
 
     @GET("bins/7v99")
-    Call<Items> getsuperHeroes();
+    Call<Items> getTopTable();
+
+    @GET("bins/eigd")
+    Call<Items> getStockTable();
+
+    @GET("bins/f6dh")
+    Call<Items> getMFTable();
 }
