@@ -3,12 +3,31 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:id="@+id/parent"
-    android:layout_height="match_parent"
-   >
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="Stocks" />
 
 
+    <TextView
+        android:id="@+id/daysGain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toStartOf="@+id/latestValue"
+        app:layout_constraintStart_toEndOf="@id/name"
+        tools:text="20 Days" />
 
+
+    <TextView
+        android:id="@+id/latestValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="20000" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

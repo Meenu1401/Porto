@@ -4,17 +4,21 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
-import com.example.myapplication.R;
-import com.example.myapplication.databinding.FragmentPortfolioBinding;
 import com.example.myapplication.databinding.FragmentPortfolioDetailBinding;
+import com.example.myapplication.ui.adapters.StocksAdapter;
+import com.example.myapplication.ui.models.Items;
+import com.example.myapplication.ui.retrofit.RetrofitClient;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 //API
@@ -28,6 +32,8 @@ import com.example.myapplication.databinding.FragmentPortfolioDetailBinding;
 public class PortfolioDetailFragment extends Fragment {
 
     private FragmentPortfolioDetailBinding binding;
+
+    private boolean isSelected = true;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -44,11 +50,40 @@ public class PortfolioDetailFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        getData();
+        binding.daysGain.setOnClickListener(view1 -> {
+            if(isSelected){
+
+            }else{
+
+            }
+        });
     }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
+    }
+
+    private void getData() {
+        Call<Items> call = RetrofitClient.getInstance().getMyApi().getsuperHeroes();
+
+        call.enqueue(new Callback<Items>() {
+            @Override
+            public void onResponse(Call<Items> call, Response<Items> response) {
+                Items myheroList = response.body();
+                StocksAdapter adapter = new StocksAdapter(myheroList.getList());
+                binding.recyclerTop.setHasFixedSize(true);
+                binding.recyclerTop.setLayoutManager(new LinearLayoutManager(requireContext()));
+                binding.recyclerTop.setAdapter(adapter);
+            }
+
+            @Override
+            public void onFailure(Call<Items> call, Throwable t) {
+                Toast.makeText(getContext(), "An error has occured", Toast.LENGTH_LONG).show();
+            }
+
+        });
     }
 }

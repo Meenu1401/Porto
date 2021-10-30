@@ -167,6 +167,7 @@
             android:layout_height="wrap_content"
             tools:ignore="MissingConstraints" />
         <TextView
+            android:id="@+id/daysGain"
             android:layout_width="wrap_content"
             android:text="Days Gain"
             app:layout_constraintTop_toBottomOf="@+id/seprator2"
@@ -187,15 +188,13 @@
             tools:ignore="MissingConstraints" />
 
 
-
-
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerTop"
             tools:itemCount="2"
             android:layout_width="match_parent"
             app:layout_constraintTop_toBottomOf="@+id/lblname"
             android:layout_height="wrap_content"
+            tools:listitem="@layout/summaryrow_item"
             tools:ignore="MissingConstraints" />
 
 
