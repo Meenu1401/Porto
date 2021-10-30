@@ -54,8 +54,8 @@ public class LoginFragment extends Fragment {
     private void login(String username, String password) {
         portfolioViewModel.login(username, password).observe(getViewLifecycleOwner(), result -> {
             if (result) {
-                AppPreference.getInstance().setString(AppPreference.USER_NAME, "meenu109083@gmail.com");
-                AppPreference.getInstance().setString(AppPreference.PASSWORD, "1234");
+                AppPreference.getInstance().setString(AppPreference.USER_NAME, "M");
+                AppPreference.getInstance().setString(AppPreference.PASSWORD, "1");
                 navController.navigate(R.id.action_login_to_navigation_detail);
             } else {
                 showErrorMessage();

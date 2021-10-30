@@ -75,7 +75,7 @@
         android:id="@+id/navigation_detail"
         android:name="com.example.myapplication.ui.portfolio.PortfolioDetailFragment"
         android:label="fragment_login"
-        tools:layout="@layout/fragment_portfolio"/>
+        tools:layout="@layout/fragment_portfolio_detail"/>
 
     <fragment
         android:id="@+id/forgot_fragment"
