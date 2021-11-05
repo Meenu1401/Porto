@@ -55,7 +55,6 @@ public class PortfolioDetailFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        simpleProgressBar= view.findViewById(R.id.simpleProgressBar);
 
         cardviewSummaryList= view. findViewById(R.id.cardviewSummaryList);
         cardviewSummaryList.setVisibility(View.GONE);
@@ -91,6 +90,10 @@ public class PortfolioDetailFragment extends Fragment {
         call.enqueue(new Callback<Items>() {
             @Override
             public void onResponse(Call<Items> call, Response<Items> response) {
+
+
+                cardviewSummaryList.animate().translationY(cardviewSummaryList.getHeight());
+
                 cardviewSummaryList.setVisibility(View.VISIBLE);
 
 
@@ -162,24 +165,5 @@ public class PortfolioDetailFragment extends Fragment {
     }
 
 
-private ProgressBar simpleProgressBar;
-    private void setProgressValue(final int progress) {
-
-        // set the progress
-        simpleProgressBar.setProgress(progress);
-        // thread is used to change the progress value
-        Thread thread = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                setProgressValue(progress + 10);
-            }
-        });
-        thread.start();
-    }
 
 }

@@ -35,12 +35,8 @@ com/example/myapplication/ui/login/ForgotPassFragment.java
  com.example.myapplication.ui.login.ForgotPassFragment
 com/example/myapplication/ui/portfolio/PortfolioFragment.java
  com.example.myapplication.ui.portfolio.PortfolioFragment
-com/example/myapplication/ui/portfolio/PortfolioDetailFragment.java
- com.example.myapplication.ui.portfolio.PortfolioDetailFragment
- com.example.myapplication.ui.portfolio.PortfolioDetailFragment$1
- com.example.myapplication.ui.portfolio.PortfolioDetailFragment$2
- com.example.myapplication.ui.portfolio.PortfolioDetailFragment$3
- com.example.myapplication.ui.portfolio.PortfolioDetailFragment$4
+com/example/myapplication/databinding/FragmentNewsBinding.java
+ com.example.myapplication.databinding.FragmentNewsBinding
 com/example/myapplication/ui/adapters/SummaryDataAdapter.java
  com.example.myapplication.ui.adapters.SummaryDataAdapter
  com.example.myapplication.ui.adapters.SummaryDataAdapter$ViewHolder
@@ -87,5 +83,8 @@ com/example/myapplication/ui/utility/OtpEditText.java
  com.example.myapplication.ui.utility.OtpEditText$1
 com/example/myapplication/databinding/LoginresetpassBinding.java
  com.example.myapplication.databinding.LoginresetpassBinding
-com/example/myapplication/databinding/FragmentNewsBinding.java
- com.example.myapplication.databinding.FragmentNewsBinding
+com/example/myapplication/ui/portfolio/PortfolioDetailFragment.java
+ com.example.myapplication.ui.portfolio.PortfolioDetailFragment
+ com.example.myapplication.ui.portfolio.PortfolioDetailFragment$1
+ com.example.myapplication.ui.portfolio.PortfolioDetailFragment$2
+ com.example.myapplication.ui.portfolio.PortfolioDetailFragment$3
