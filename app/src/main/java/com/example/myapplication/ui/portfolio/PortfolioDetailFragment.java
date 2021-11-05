@@ -4,13 +4,16 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.example.myapplication.R;
 import com.example.myapplication.databinding.FragmentPortfolioDetailBinding;
 import com.example.myapplication.ui.adapters.MFAdapter;
 import com.example.myapplication.ui.adapters.StocksAdapter;
@@ -34,7 +37,7 @@ import retrofit2.Response;
 public class PortfolioDetailFragment extends Fragment {
 
     private FragmentPortfolioDetailBinding binding;
-
+    private CardView cardviewSummaryList, cardviewMFList, cardviewStockList;
     private boolean isSelected = true;
 
     @Override
@@ -52,6 +55,18 @@ public class PortfolioDetailFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        simpleProgressBar= view.findViewById(R.id.simpleProgressBar);
+
+        cardviewSummaryList= view. findViewById(R.id.cardviewSummaryList);
+        cardviewSummaryList.setVisibility(View.GONE);
+        cardviewStockList= view. findViewById(R.id.cardviewStockList);
+        cardviewStockList.setVisibility(View.GONE);
+        cardviewMFList= view. findViewById(R.id.cardviewMFList);
+        cardviewMFList.setVisibility(View.GONE);
+
+
+
+
         getTopTable();
         getStockTable();
         getMFTable();
@@ -76,6 +91,10 @@ public class PortfolioDetailFragment extends Fragment {
         call.enqueue(new Callback<Items>() {
             @Override
             public void onResponse(Call<Items> call, Response<Items> response) {
+                cardviewSummaryList.setVisibility(View.VISIBLE);
+
+
+
                 Items myheroList = response.body();
                 SummaryDataAdapter adapter = new SummaryDataAdapter(myheroList.getList());
                 binding.recyclerTop.setHasFixedSize(true);
@@ -97,6 +116,11 @@ public class PortfolioDetailFragment extends Fragment {
         call.enqueue(new Callback<Items>() {
             @Override
             public void onResponse(Call<Items> call, Response<Items> response) {
+
+
+                cardviewStockList.setVisibility(View.VISIBLE);
+
+
                 Items myheroList = response.body();
                 StocksAdapter adapter = new StocksAdapter(myheroList.getList());
                 binding.recyclerStock.setHasFixedSize(true);
@@ -118,6 +142,10 @@ public class PortfolioDetailFragment extends Fragment {
         call.enqueue(new Callback<Items>() {
             @Override
             public void onResponse(Call<Items> call, Response<Items> response) {
+
+
+                cardviewMFList.setVisibility(View.VISIBLE);
+
                 Items myheroList = response.body();
                 MFAdapter adapter = new MFAdapter(myheroList.getList());
                 binding.recyclerMf.setHasFixedSize(true);
@@ -132,4 +160,26 @@ public class PortfolioDetailFragment extends Fragment {
 
         });
     }
+
+
+private ProgressBar simpleProgressBar;
+    private void setProgressValue(final int progress) {
+
+        // set the progress
+        simpleProgressBar.setProgress(progress);
+        // thread is used to change the progress value
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                setProgressValue(progress + 10);
+            }
+        });
+        thread.start();
+    }
+
 }

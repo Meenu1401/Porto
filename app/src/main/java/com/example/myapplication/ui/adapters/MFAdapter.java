@@ -23,9 +23,10 @@ public class MFAdapter extends RecyclerView.Adapter<MFAdapter.ViewHolder> {
 
         public ViewHolder(View view) {
             super(view);
-            name = (TextView) view.findViewById(R.id.name);
-            latestValue = (TextView) view.findViewById(R.id.latestValue);
-            daysGain = (TextView) view.findViewById(R.id.daysGain);
+            name =  view.findViewById(R.id.name);
+            latestValue =  view.findViewById(R.id.latestValue);
+            daysGain =  view.findViewById(R.id.daysGain);
+
         }
     }
 
@@ -48,6 +49,7 @@ public class MFAdapter extends RecyclerView.Adapter<MFAdapter.ViewHolder> {
         viewHolder.name.setText(summaryData.getNm());
         viewHolder.latestValue.setText(summaryData.getLv() + "");
         viewHolder.daysGain.setText(summaryData.getDg() + "");
+
 
     }
 
