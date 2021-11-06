@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -37,12 +36,12 @@ import retrofit2.Response;
 
 
 
-public class PortfolioDetailFragment extends Fragment {
+public class PortfolioDetailFragment extends Fragment implements View.OnClickListener {
 
     private FragmentPortfolioDetailBinding binding;
     private CardView cardviewSummaryList, cardviewMFList, cardviewStockList;
-    private TextView lblAddtoPort;
-    private boolean isSelected = true;
+    private TextView lblAddtoPort, daysGain,lvSummary, daysGainstock, lvStock, daysgainMf, lvMf ;
+    private boolean isSelectedSummaryGain,isSelectedStockGain,isSelectedMFGain,isSelectedSummaryLv,isSelectedStockLv,isSelectedMFLv ;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -69,21 +68,30 @@ public class PortfolioDetailFragment extends Fragment {
 
         lblAddtoPort= view. findViewById(R.id.lblAddtoPort);
 
+        daysGain= view. findViewById(R.id.daysGain);
+        daysGain.setOnClickListener(this);
+
+        lvSummary= view. findViewById(R.id.lvSummary);
+        lvSummary.setOnClickListener(this);
+
+        daysGainstock= view. findViewById(R.id.daysGainstock);
+        daysGainstock.setOnClickListener(this);
+
+        lvStock= view. findViewById(R.id.lvStock);
+        lvStock.setOnClickListener(this);
+
+        daysgainMf= view. findViewById(R.id.daysgainMf);
+        daysgainMf.setOnClickListener(this);
+
+        lvMf= view. findViewById(R.id.lvMf);
+        lvMf.setOnClickListener(this);
+
 
 
         getTopTable();
         getStockTable();
         getMFTable();
         enableAddToPortfolio();
-
-
-        binding.daysGain.setOnClickListener(view1 -> {
-            if(isSelected){
-
-            }else{
-
-            }
-        });
     }
 
     private void enableAddToPortfolio() {
@@ -97,7 +105,7 @@ public class PortfolioDetailFragment extends Fragment {
 
     private void showAlertDialog() {
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(getContext());
-       String[] items = {"Stock","Mutual Fund"};
+        String[] items = {"Stock","Mutual Fund"};
         int checkedItem = 3;
         alertDialog.setSingleChoiceItems(items, checkedItem, new DialogInterface.OnClickListener() {
             @Override
@@ -206,5 +214,109 @@ public class PortfolioDetailFragment extends Fragment {
     }
 
 
+    @Override
+    public void onClick(View view) {
+        switch (view.getId())
+        {
+            case R.id.daysGain:
+                if(isSelectedSummaryGain)
+                {
+                    daysGain.setText("Days Gain");
+                    //getUpdatedNumbers
+                    isSelectedSummaryGain =false;
 
+                }
+                else{
+                    daysGain.setText("Total Gain");
+                    isSelectedSummaryGain =true;
+                    //getUpdatedNumbers
+
+                }
+                break;
+            case R.id.lvSummary:
+
+                if(isSelectedSummaryLv)
+                {
+                    lvSummary.setText("latest Value");
+                    //getUpdatedNumbers
+                    isSelectedSummaryLv =false;
+
+                }
+                else{
+                    lvSummary.setText("Invested Amount");
+                    isSelectedSummaryLv =true;
+                    //getUpdatedNumbers
+
+                }
+
+                break;
+            case R.id.daysGainstock:
+
+                if(isSelectedStockGain)
+                {
+                    daysGainstock.setText("Days Gain");
+                    //getUpdatedNumbers
+                    isSelectedStockGain =false;
+
+                }
+                else{
+                    daysGainstock.setText("Total Gain");
+                    isSelectedStockGain =true;
+                    //getUpdatedNumbers
+
+                }
+
+                break;
+            case R.id.lvStock:
+
+                if(isSelectedStockLv)
+                {
+                    lvStock.setText("latest Value");
+                    //getUpdatedNumbers
+                    isSelectedStockLv =false;
+
+                }
+                else{
+                    lvStock.setText("Invested Amount");
+                    isSelectedStockLv =true;
+                    //getUpdatedNumbers
+
+                }
+
+                break;
+            case R.id.daysgainMf:
+
+                if(isSelectedMFGain)
+                {
+                    daysgainMf.setText("Days Gain");
+                    //getUpdatedNumbers
+                    isSelectedMFGain =false;
+
+                }
+                else{
+                    daysgainMf.setText("Total Gain");
+                    isSelectedMFGain =true;
+                    //getUpdatedNumbers
+
+                }
+                break;
+            case R.id.lvMf:
+                if(isSelectedMFLv)
+                {
+                    lvMf.setText("latest Value");
+                    //getUpdatedNumbers
+                    isSelectedMFLv =false;
+
+                }
+                else{
+                    lvMf.setText("Invested Amount");
+                    isSelectedMFLv =true;
+                    //getUpdatedNumbers
+
+                }
+                break;
+
+        }
+
+    }
 }

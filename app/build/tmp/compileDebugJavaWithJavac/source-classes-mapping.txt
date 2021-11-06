@@ -88,3 +88,5 @@ com/example/myapplication/ui/portfolio/PortfolioDetailFragment.java
  com.example.myapplication.ui.portfolio.PortfolioDetailFragment$1
  com.example.myapplication.ui.portfolio.PortfolioDetailFragment$2
  com.example.myapplication.ui.portfolio.PortfolioDetailFragment$3
+ com.example.myapplication.ui.portfolio.PortfolioDetailFragment$4
+ com.example.myapplication.ui.portfolio.PortfolioDetailFragment$5
