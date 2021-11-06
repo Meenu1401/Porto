@@ -252,7 +252,7 @@
             android:textColor="@color/white"
             android:textStyle="bold"
             android:layout_marginLeft="20dp"
-            android:background="@color/zee_color"
+            android:background="@color/zee_secondary"
             app:layout_constraintLeft_toLeftOf="parent"
             android:layout_height="wrap_content"
             tools:ignore="MissingConstraints" />
@@ -263,7 +263,7 @@
             android:id="@+id/lblEditPOrt"
             android:layout_marginTop="30dp"
             android:text="Edit Portfolio"
-            android:background="@color/zee_color"
+            android:background="@color/zee_secondary"
             android:paddingTop="10dp"
             android:textColor="@color/white"
             android:textStyle="bold"

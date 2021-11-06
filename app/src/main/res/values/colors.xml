@@ -1,10 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="purple_200">#FFBB86FC</color>
-    <color name="zee_color">#DAAE42</color>
-    <color name="zee_color_500">#DAAE42</color>
+    <color name="zee_secondary">#25999B</color>
+    <color name="zee_secondary_light">#66B7B9</color>
 
-    <color name="grey">#e5c67a</color>
+    <color name="zee_primary">#DAAE42</color>
+
+    <color name="zee_primary_light">#DAAE42</color>
+
+    <!--<color name="zee_color">#DAAE42</color>
+    <color name="zeelight">#e5c67a</color>
+-->
+
+
 
     <color name="gray">#ebebeb</color>
     <color name="light_gray">#f4f4f4</color>
