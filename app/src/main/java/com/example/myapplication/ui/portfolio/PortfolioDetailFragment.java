@@ -1,10 +1,13 @@
 package com.example.myapplication.ui.portfolio;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -38,6 +41,7 @@ public class PortfolioDetailFragment extends Fragment {
 
     private FragmentPortfolioDetailBinding binding;
     private CardView cardviewSummaryList, cardviewMFList, cardviewStockList;
+    private TextView lblAddtoPort;
     private boolean isSelected = true;
 
     @Override
@@ -63,12 +67,16 @@ public class PortfolioDetailFragment extends Fragment {
         cardviewMFList= view. findViewById(R.id.cardviewMFList);
         cardviewMFList.setVisibility(View.GONE);
 
+        lblAddtoPort= view. findViewById(R.id.lblAddtoPort);
 
 
 
         getTopTable();
         getStockTable();
         getMFTable();
+        enableAddToPortfolio();
+
+
         binding.daysGain.setOnClickListener(view1 -> {
             if(isSelected){
 
@@ -76,6 +84,39 @@ public class PortfolioDetailFragment extends Fragment {
 
             }
         });
+    }
+
+    private void enableAddToPortfolio() {
+        lblAddtoPort.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showAlertDialog();
+            }
+        });
+    }
+
+    private void showAlertDialog() {
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(getContext());
+       String[] items = {"Stock","Mutual Fund"};
+        int checkedItem = 3;
+        alertDialog.setSingleChoiceItems(items, checkedItem, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                switch (which) {
+                    case 0:
+                        Toast.makeText(getContext(), "Navigate to the Add stock page", Toast.LENGTH_LONG).show();
+                        dialog.dismiss();
+                        break;
+                    case 1:
+                        Toast.makeText(getContext(), "Navigate to the Add Mutual funds page", Toast.LENGTH_LONG).show();
+                        dialog.dismiss();
+                        break;
+                }
+            }
+        });
+        AlertDialog alert = alertDialog.create();
+        alert.setCanceledOnTouchOutside(true);
+        alert.show();
     }
 
     @Override

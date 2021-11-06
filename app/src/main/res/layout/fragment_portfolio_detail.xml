@@ -312,6 +312,7 @@
         <TextView
              android:layout_width="wrap_content"
             android:id="@+id/lblEditPOrt"
+
             app:layout_constraintTop_toBottomOf="@+id/fakeSep"
 
             android:text="Edit Portfolio"
