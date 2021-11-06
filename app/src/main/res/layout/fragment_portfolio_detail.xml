@@ -9,7 +9,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-         android:paddingRight="20dp"
+        android:paddingRight="20dp"
         android:paddingLeft="20dp"
         android:paddingTop="5dp"
         android:paddingBottom="150dp"
@@ -84,9 +84,10 @@
 
                 <View
                     android:layout_width="1dp"
-                    android:background="@color/white"
-                    android:layout_marginLeft="10dp"
+                    android:background="@color/black"
+                    android:layout_marginLeft="20dp"
                     android:id="@+id/view"
+
                     app:layout_constraintLeft_toRightOf="@+id/currentvalueAmount"
                     app:layout_constraintBottom_toBottomOf="@+id/investedvalueAmount"
                     android:layout_height="match_parent"/>
@@ -95,7 +96,6 @@
                     android:id="@+id/totalreturn"
                     android:layout_width="wrap_content"
                     android:text="Total Return"
-                    android:layout_marginLeft="30dp"
                     android:textColor="@color/white"
                     android:textStyle="bold"
                     app:layout_constraintLeft_toRightOf="@+id/view"
@@ -105,11 +105,21 @@
                     android:id="@+id/valuetotalreturn"
                     app:layout_constraintTop_toBottomOf="@+id/totalreturn"
                     app:layout_constraintLeft_toRightOf="@+id/view"
-                    android:text="+400,000(33.33%)"
+                    android:text="+400,000"
+
                     android:textStyle="bold"
-                    android:layout_marginLeft="30dp"
                     android:textSize="20dp"
                     android:textColor="@color/white"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/totalreturn"
+                    android:text=" (33.33%)"
+                    android:textColor="@color/white"
+
+                    app:layout_constraintBottom_toBottomOf="@+id/valuetotalreturn"
+                    app:layout_constraintLeft_toRightOf="@+id/valuetotalreturn"
+                    android:id="@+id/sumCardTotalPercent"
                     android:layout_height="wrap_content"/>
 
 
@@ -120,7 +130,6 @@
                     android:id="@+id/daysreturn"
                     android:layout_width="wrap_content"
                     android:text="1 Day Return"
-                    android:layout_marginLeft="30dp"
                     android:textColor="@color/white"
                     app:layout_constraintTop_toBottomOf="@+id/valuetotalreturn"
                     app:layout_constraintLeft_toRightOf="@+id/view"
@@ -129,12 +138,26 @@
                     android:layout_width="wrap_content"
                     app:layout_constraintTop_toBottomOf="@+id/daysreturn"
                     app:layout_constraintLeft_toRightOf="@+id/view"
-                    android:text="-300(2.33%)"
+                    android:text="-300"
                     android:textStyle="bold"
-                    android:layout_marginLeft="30dp"
+                    android:id="@+id/summaryDaysreturn"
                     android:textSize="16dp"
                     android:textColor="@color/white"
                     android:layout_height="wrap_content"/>
+
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/daysreturn"
+                    android:text=" (33.33%)"
+                    android:textColor="@color/white"
+
+                    app:layout_constraintBottom_toBottomOf="@+id/summaryDaysreturn"
+                    app:layout_constraintLeft_toRightOf="@+id/summaryDaysreturn"
+                     android:layout_height="wrap_content"/>
+
+
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -218,7 +241,7 @@
                 <TextView
                     android:id="@+id/daysGain"
                     android:layout_width="wrap_content"
-                    android:text="Days Gain"
+                    android:text="Day's Gain"
                     android:textStyle="bold"
                     android:textColor="@color/zee_primary"
 
@@ -301,7 +324,7 @@
         <TextView
             app:layout_constraintTop_toBottomOf="@+id/fakeSep"
             android:layout_width="wrap_content"
-             android:id="@+id/lblAddtoPort"
+            android:id="@+id/lblAddtoPort"
             android:text="Add to portfolio"
             android:paddingTop="10dp"
             android:paddingLeft="30dp"
@@ -317,7 +340,7 @@
             tools:ignore="MissingConstraints" />
 
         <TextView
-             android:layout_width="wrap_content"
+            android:layout_width="wrap_content"
             android:id="@+id/lblEditPOrt"
 
             app:layout_constraintTop_toBottomOf="@+id/fakeSep"
@@ -412,7 +435,7 @@
 
                 <TextView
                     android:layout_width="wrap_content"
-                    android:text="Days Gain"
+                    android:text="Day's Gain"
                     android:textColor="@color/zee_primary"
 
                     android:textStyle="bold"
@@ -570,7 +593,7 @@
                     android:layout_height="10dp"/>
                 <TextView
                     android:layout_width="wrap_content"
-                    android:text="Days Gain"
+                    android:text="Day's Gain"
                     android:id="@+id/daysgainMf"
                     app:layout_constraintTop_toTopOf="@+id/ccMF"
                     app:layout_constraintLeft_toLeftOf="parent"
