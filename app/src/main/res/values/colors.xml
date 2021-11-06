@@ -8,6 +8,11 @@
 
     <color name="zee_primary_light">#DAAE42</color>
 
+
+    <color name="positive">#18A558</color>
+    <color name="negative">#FF4C4C</color>
+
+
     <!--<color name="zee_color">#DAAE42</color>
     <color name="zeelight">#e5c67a</color>
 -->

@@ -35,13 +35,8 @@ com/example/myapplication/ui/login/ForgotPassFragment.java
  com.example.myapplication.ui.login.ForgotPassFragment
 com/example/myapplication/ui/portfolio/PortfolioFragment.java
  com.example.myapplication.ui.portfolio.PortfolioFragment
-com/example/myapplication/ui/portfolio/PortfolioDetailFragment.java
- com.example.myapplication.ui.portfolio.PortfolioDetailFragment
- com.example.myapplication.ui.portfolio.PortfolioDetailFragment$1
- com.example.myapplication.ui.portfolio.PortfolioDetailFragment$2
- com.example.myapplication.ui.portfolio.PortfolioDetailFragment$3
- com.example.myapplication.ui.portfolio.PortfolioDetailFragment$4
- com.example.myapplication.ui.portfolio.PortfolioDetailFragment$5
+com/example/myapplication/databinding/FragmentNewsBinding.java
+ com.example.myapplication.databinding.FragmentNewsBinding
 com/example/myapplication/ui/adapters/SummaryDataAdapter.java
  com.example.myapplication.ui.adapters.SummaryDataAdapter
  com.example.myapplication.ui.adapters.SummaryDataAdapter$ViewHolder
@@ -63,9 +58,8 @@ com/example/myapplication/ui/login/LoginFragment.java
  com.example.myapplication.ui.login.LoginFragment
 com/example/myapplication/databinding/FragmentPortfolioDetailBinding.java
  com.example.myapplication.databinding.FragmentPortfolioDetailBinding
-com/example/myapplication/ui/adapters/MFAdapter.java
- com.example.myapplication.ui.adapters.MFAdapter
- com.example.myapplication.ui.adapters.MFAdapter$ViewHolder
+com/example/myapplication/databinding/LoginresetpassBinding.java
+ com.example.myapplication.databinding.LoginresetpassBinding
 com/example/myapplication/databinding/FragmentWatchlistBinding.java
  com.example.myapplication.databinding.FragmentWatchlistBinding
 com/example/myapplication/databinding/LoginforgotpassBinding.java
@@ -78,15 +72,21 @@ com/example/myapplication/databinding/ActivityMainBinding.java
  com.example.myapplication.databinding.ActivityMainBinding
 com/example/myapplication/ui/login/ResetPassFragment.java
  com.example.myapplication.ui.login.ResetPassFragment
-com/example/myapplication/ui/adapters/StocksAdapter.java
- com.example.myapplication.ui.adapters.StocksAdapter
- com.example.myapplication.ui.adapters.StocksAdapter$ViewHolder
-com/example/myapplication/databinding/FragmentMarketBinding.java
- com.example.myapplication.databinding.FragmentMarketBinding
 com/example/myapplication/ui/utility/OtpEditText.java
  com.example.myapplication.ui.utility.OtpEditText
  com.example.myapplication.ui.utility.OtpEditText$1
-com/example/myapplication/databinding/LoginresetpassBinding.java
- com.example.myapplication.databinding.LoginresetpassBinding
-com/example/myapplication/databinding/FragmentNewsBinding.java
- com.example.myapplication.databinding.FragmentNewsBinding
+com/example/myapplication/databinding/FragmentMarketBinding.java
+ com.example.myapplication.databinding.FragmentMarketBinding
+com/example/myapplication/ui/portfolio/PortfolioDetailFragment.java
+ com.example.myapplication.ui.portfolio.PortfolioDetailFragment
+ com.example.myapplication.ui.portfolio.PortfolioDetailFragment$1
+ com.example.myapplication.ui.portfolio.PortfolioDetailFragment$2
+ com.example.myapplication.ui.portfolio.PortfolioDetailFragment$3
+ com.example.myapplication.ui.portfolio.PortfolioDetailFragment$4
+ com.example.myapplication.ui.portfolio.PortfolioDetailFragment$5
+com/example/myapplication/ui/adapters/MFAdapter.java
+ com.example.myapplication.ui.adapters.MFAdapter
+ com.example.myapplication.ui.adapters.MFAdapter$ViewHolder
+com/example/myapplication/ui/adapters/StocksAdapter.java
+ com.example.myapplication.ui.adapters.StocksAdapter
+ com.example.myapplication.ui.adapters.StocksAdapter$ViewHolder

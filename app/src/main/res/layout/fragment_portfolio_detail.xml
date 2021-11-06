@@ -155,7 +155,7 @@
 
                     app:layout_constraintBottom_toBottomOf="@+id/summaryDaysreturn"
                     app:layout_constraintLeft_toRightOf="@+id/summaryDaysreturn"
-                     android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"/>
 
 
 
@@ -291,7 +291,6 @@
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recyclerTop"
                     tools:itemCount="2"
-                    android:layout_marginTop="10dp"
                     android:layout_width="match_parent"
                     app:layout_constraintTop_toBottomOf="@+id/separator_summary"
                     android:layout_height="wrap_content"

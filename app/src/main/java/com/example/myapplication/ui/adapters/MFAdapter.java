@@ -1,9 +1,11 @@
 package com.example.myapplication.ui.adapters;
 
 
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -20,12 +22,15 @@ public class MFAdapter extends RecyclerView.Adapter<MFAdapter.ViewHolder> {
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         private final TextView name, latestValue, daysGain;
+        private final LinearLayout llGain;
 
         public ViewHolder(View view) {
             super(view);
             name =  view.findViewById(R.id.name);
             latestValue =  view.findViewById(R.id.latestValue);
             daysGain =  view.findViewById(R.id.daysGain);
+            llGain= view.findViewById(R.id.llGain);
+
 
         }
     }
@@ -50,6 +55,15 @@ public class MFAdapter extends RecyclerView.Adapter<MFAdapter.ViewHolder> {
         viewHolder.latestValue.setText(summaryData.getLv() + "");
         viewHolder.daysGain.setText(summaryData.getDg() + "");
 
+        if(position%2==0) {
+            viewHolder.llGain.setBackgroundColor(Color.parseColor("#18A558"));
+            viewHolder.daysGain.setText("+" +summaryData.getDg() + "");
+        }
+        else{
+            viewHolder.llGain.setBackgroundColor(Color.parseColor("#FF4C4C"));
+            viewHolder.daysGain.setText("-" + summaryData.getDg() + "");
+
+        }
 
     }
 
