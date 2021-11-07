@@ -70,7 +70,17 @@ public class SummaryDataAdapter extends RecyclerView.Adapter<SummaryDataAdapter.
 
 
 
-        if(isSelectedSummaryGain){
+        if(isSelectedSummaryGain)
+        {
+            viewHolder.daysGain.setText("+" +summaryData.getTg() + "");
+            viewHolder.daysGainPer.setText("(" +summaryData.getTg() + "%)");
+        }
+
+
+
+
+        else
+        {
             if(position%2==0) {
                 viewHolder.daysGain.setTextColor(Color.parseColor("#18A558"));
                 viewHolder.daysGain.setText("+" +summaryData.getDg() + "");
@@ -82,11 +92,7 @@ public class SummaryDataAdapter extends RecyclerView.Adapter<SummaryDataAdapter.
                 viewHolder.daysGainPer.setTextColor(Color.parseColor("#FF4C4C"));
             }
             viewHolder.daysGainPer.setText("(" +summaryData.getDg() + "%)");
-        }else
-            {
-                viewHolder.daysGain.setText("+" +summaryData.getTg() + "");
-                viewHolder.daysGainPer.setText("(" +summaryData.getTg() + "%)");
-            }
+        }
 
 
         if(position+1 ==summaryDataList.size()){
