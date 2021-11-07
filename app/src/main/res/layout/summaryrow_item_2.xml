@@ -40,12 +40,15 @@
                 android:layout_width="wrap_content"
                 android:id="@+id/daysGain"
                 android:text="-34445"
+                android:textStyle="bold"
                 android:textColor="#FF4C4C"
                 android:layout_height="wrap_content"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:text="-23%"
+                android:id="@+id/daysGainPer"
+
                 android:textColor="#FF4C4C"
 
 

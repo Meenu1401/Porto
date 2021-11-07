@@ -133,6 +133,7 @@ public class PortfolioDetailFragment extends Fragment implements View.OnClickLis
         binding = null;
     }
 
+    SummaryDataAdapter adapterSumm;
     private void getTopTable() {
         Call<Items> call = RetrofitClient.getInstance().getMyApi().getTopTable();
 
@@ -144,14 +145,12 @@ public class PortfolioDetailFragment extends Fragment implements View.OnClickLis
                 cardviewSummaryList.animate().translationY(cardviewSummaryList.getHeight());
 
                 cardviewSummaryList.setVisibility(View.VISIBLE);
-
-
-
                 Items myheroList = response.body();
-                SummaryDataAdapter adapter = new SummaryDataAdapter(myheroList.getList());
+
+                adapterSumm = new SummaryDataAdapter(myheroList.getList());
                 binding.recyclerTop.setHasFixedSize(true);
                 binding.recyclerTop.setLayoutManager(new LinearLayoutManager(requireContext()));
-                binding.recyclerTop.setAdapter(adapter);
+                binding.recyclerTop.setAdapter(adapterSumm);
             }
 
             @Override

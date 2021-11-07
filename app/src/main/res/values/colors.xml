@@ -6,7 +6,7 @@
 
     <color name="zee_primary">#DAAE42</color>
 
-    <color name="zee_primary_light">#DAAE42</color>
+    <color name="zee_primary_light">#e5c67a</color>
 
 
     <color name="positive">#18A558</color>
@@ -21,6 +21,8 @@
 
     <color name="gray">#ebebeb</color>
     <color name="light_gray">#f4f4f4</color>
+    <color name="light_gray_tr">#33f4f4f4</color>
+
 
     <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>
