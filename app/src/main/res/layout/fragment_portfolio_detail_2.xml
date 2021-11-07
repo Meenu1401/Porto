@@ -226,7 +226,7 @@
                     android:layout_width="match_parent"
                     app:layout_constraintTop_toBottomOf="@+id/separator_summary"
                     android:layout_height="wrap_content"
-                    tools:listitem="@layout/summaryrow_item"
+                    tools:listitem="@layout/summaryrow_item_2"
                     tools:ignore="MissingConstraints" />
 
 

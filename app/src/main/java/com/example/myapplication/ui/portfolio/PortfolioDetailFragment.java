@@ -143,15 +143,21 @@ public class PortfolioDetailFragment extends Fragment implements View.OnClickLis
             public void onResponse(Call<Items> call, Response<Items> response) {
 
 
-                cardviewSummaryList.animate().translationY(cardviewSummaryList.getHeight());
 
-                cardviewSummaryList.setVisibility(View.VISIBLE);
+
+
+
+
                 Items myheroList = response.body();
 
                 adapterSumm = new SummaryDataAdapter(myheroList.getList());
                 binding.recyclerTop.setHasFixedSize(true);
                 binding.recyclerTop.setLayoutManager(new LinearLayoutManager(requireContext()));
                 binding.recyclerTop.setAdapter(adapterSumm);
+
+                cardviewSummaryList.animate().translationY(cardviewSummaryList.getHeight());
+                cardviewSummaryList.setVisibility(View.VISIBLE);
+
             }
 
             @Override
