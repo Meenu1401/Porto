@@ -13,6 +13,8 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -182,7 +184,7 @@ public class PortfolioDetailFragment extends Fragment implements View.OnClickLis
 
             @Override
             public void onFailure(Call<Items> call, Throwable t) {
-                Toast.makeText(getContext(), "An error has occured", Toast.LENGTH_LONG).show();
+                Toast.makeText(requireContext(), "An error has occured", Toast.LENGTH_LONG).show();
             }
 
         });
@@ -208,7 +210,7 @@ public class PortfolioDetailFragment extends Fragment implements View.OnClickLis
 
             @Override
             public void onFailure(Call<Items> call, Throwable t) {
-                Toast.makeText(getContext(), "An error has occured", Toast.LENGTH_LONG).show();
+                Toast.makeText(requireContext(), "An error has occured", Toast.LENGTH_LONG).show();
             }
 
         });
@@ -221,21 +223,15 @@ public class PortfolioDetailFragment extends Fragment implements View.OnClickLis
             case R.id.daysGain:
                 if (isSelectedSummaryGain) {
                     daysGain.setText("Days Gain");
-                    //getUpdatedNumbers
                     isSelectedSummaryGain = false;
-                    adapterSumm.setSelectedSummaryGain(false);
-                    adapterSumm.notifyDataSetChanged();
-
                 } else {
                     daysGain.setText("Total Gain");
                     isSelectedSummaryGain = true;
-                    adapterSumm.setSelectedSummaryGain(true);
-                    adapterSumm.notifyDataSetChanged();
-                    //getUpdatedNumbers
                 }
+                adapterSumm.setSelectedSummaryGain(isSelectedSummaryGain);
+                adapterSumm.notifyDataSetChanged();
                 break;
             case R.id.lvSummary:
-
                 if (isSelectedSummaryLv) {
                     lvSummary.setText("latest Value");
                     //getUpdatedNumbers
