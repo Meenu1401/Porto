@@ -34,15 +34,13 @@ import retrofit2.Response;
 // mf table :http://myjson.dit.upm.es/api/bins/f6dh
 
 
-
-
 public class PortfolioDetailFragment extends Fragment implements View.OnClickListener {
 
     private FragmentPortfolioDetailBinding binding;
     private CardView cardviewSummaryList, cardviewMFList, cardviewStockList;
-    private TextView lblAddtoPort, daysGain,lvSummary, daysGainstock, lvStock, daysgainMf, lvMf ;
-    private boolean isSelectedSummaryGain,isSelectedStockGain,isSelectedMFGain,isSelectedSummaryLv,isSelectedStockLv,isSelectedMFLv ;
-    private int lvselectedStock=0;
+    private TextView lblAddtoPort, daysGain, lvSummary, daysGainstock, lvStock, daysgainMf, lvMf;
+    private boolean isSelectedSummaryGain, isSelectedStockGain, isSelectedMFGain, isSelectedSummaryLv, isSelectedStockLv, isSelectedMFLv;
+    private int lvselectedStock = 0;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -60,33 +58,32 @@ public class PortfolioDetailFragment extends Fragment implements View.OnClickLis
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        cardviewSummaryList= view. findViewById(R.id.cardviewSummaryList);
+        cardviewSummaryList = view.findViewById(R.id.cardviewSummaryList);
         cardviewSummaryList.setVisibility(View.GONE);
-        cardviewStockList= view. findViewById(R.id.cardviewStockList);
+        cardviewStockList = view.findViewById(R.id.cardviewStockList);
         cardviewStockList.setVisibility(View.GONE);
-        cardviewMFList= view. findViewById(R.id.cardviewMFList);
+        cardviewMFList = view.findViewById(R.id.cardviewMFList);
         cardviewMFList.setVisibility(View.GONE);
 
-        lblAddtoPort= view. findViewById(R.id.lblAddtoPort);
+        lblAddtoPort = view.findViewById(R.id.lblAddtoPort);
 
-        daysGain= view. findViewById(R.id.daysGain);
+        daysGain = view.findViewById(R.id.daysGain);
         daysGain.setOnClickListener(this);
 
-        lvSummary= view. findViewById(R.id.lvSummary);
+        lvSummary = view.findViewById(R.id.lvSummary);
         lvSummary.setOnClickListener(this);
 
-        daysGainstock= view. findViewById(R.id.daysGainstock);
+        daysGainstock = view.findViewById(R.id.daysGainstock);
         daysGainstock.setOnClickListener(this);
 
-        lvStock= view. findViewById(R.id.lvStock);
+        lvStock = view.findViewById(R.id.lvStock);
         lvStock.setOnClickListener(this);
 
-        daysgainMf= view. findViewById(R.id.daysgainMf);
+        daysgainMf = view.findViewById(R.id.daysgainMf);
         daysgainMf.setOnClickListener(this);
 
-        lvMf= view. findViewById(R.id.lvMf);
+        lvMf = view.findViewById(R.id.lvMf);
         lvMf.setOnClickListener(this);
-
 
 
         getTopTable();
@@ -106,7 +103,7 @@ public class PortfolioDetailFragment extends Fragment implements View.OnClickLis
 
     private void showAlertDialog() {
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(getContext());
-        String[] items = {"Stock","Mutual Fund"};
+        String[] items = {"Stock", "Mutual Fund"};
         int checkedItem = 3;
         alertDialog.setSingleChoiceItems(items, checkedItem, new DialogInterface.OnClickListener() {
             @Override
@@ -135,28 +132,23 @@ public class PortfolioDetailFragment extends Fragment implements View.OnClickLis
     }
 
     SummaryDataAdapter adapterSumm;
+
     private void getTopTable() {
         Call<Items> call = RetrofitClient.getInstance().getMyApi().getTopTable();
 
         call.enqueue(new Callback<Items>() {
             @Override
             public void onResponse(Call<Items> call, Response<Items> response) {
+                if (binding != null) {
+                    Items myheroList = response.body();
+                    adapterSumm = new SummaryDataAdapter(myheroList.getList());
+                    binding.recyclerTop.setHasFixedSize(true);
+                    binding.recyclerTop.setLayoutManager(new LinearLayoutManager(requireContext()));
+                    binding.recyclerTop.setAdapter(adapterSumm);
 
-
-
-
-
-
-
-                Items myheroList = response.body();
-
-                adapterSumm = new SummaryDataAdapter(myheroList.getList());
-                binding.recyclerTop.setHasFixedSize(true);
-                binding.recyclerTop.setLayoutManager(new LinearLayoutManager(requireContext()));
-                binding.recyclerTop.setAdapter(adapterSumm);
-
-                cardviewSummaryList.animate().translationY(cardviewSummaryList.getHeight());
-                cardviewSummaryList.setVisibility(View.VISIBLE);
+                    cardviewSummaryList.animate().translationY(cardviewSummaryList.getHeight());
+                    cardviewSummaryList.setVisibility(View.VISIBLE);
+                }
 
             }
 
@@ -175,15 +167,15 @@ public class PortfolioDetailFragment extends Fragment implements View.OnClickLis
             @Override
             public void onResponse(Call<Items> call, Response<Items> response) {
 
+                if (binding != null) {
+                    cardviewStockList.setVisibility(View.VISIBLE);
 
-                cardviewStockList.setVisibility(View.VISIBLE);
-
-
-                Items myheroList = response.body();
-                StocksAdapter adapter = new StocksAdapter(myheroList.getList());
-                binding.recyclerStock.setHasFixedSize(true);
-                binding.recyclerStock.setLayoutManager(new LinearLayoutManager(requireContext()));
-                binding.recyclerStock.setAdapter(adapter);
+                    Items myheroList = response.body();
+                    StocksAdapter adapter = new StocksAdapter(myheroList.getList());
+                    binding.recyclerStock.setHasFixedSize(true);
+                    binding.recyclerStock.setLayoutManager(new LinearLayoutManager(requireContext()));
+                    binding.recyclerStock.setAdapter(adapter);
+                }
             }
 
             @Override
@@ -201,14 +193,15 @@ public class PortfolioDetailFragment extends Fragment implements View.OnClickLis
             @Override
             public void onResponse(Call<Items> call, Response<Items> response) {
 
+                if (binding != null) {
+                    cardviewMFList.setVisibility(View.VISIBLE);
 
-                cardviewMFList.setVisibility(View.VISIBLE);
-
-                Items myheroList = response.body();
-                MFAdapter adapter = new MFAdapter(myheroList.getList());
-                binding.recyclerMf.setHasFixedSize(true);
-                binding.recyclerMf.setLayoutManager(new LinearLayoutManager(requireContext()));
-                binding.recyclerMf.setAdapter(adapter);
+                    Items myheroList = response.body();
+                    MFAdapter adapter = new MFAdapter(myheroList.getList());
+                    binding.recyclerMf.setHasFixedSize(true);
+                    binding.recyclerMf.setLayoutManager(new LinearLayoutManager(requireContext()));
+                    binding.recyclerMf.setAdapter(adapter);
+                }
             }
 
             @Override
@@ -222,35 +215,30 @@ public class PortfolioDetailFragment extends Fragment implements View.OnClickLis
 
     @Override
     public void onClick(View view) {
-        switch (view.getId())
-        {
+        switch (view.getId()) {
             case R.id.daysGain:
-                if(isSelectedSummaryGain)
-                {
+                if (isSelectedSummaryGain) {
                     daysGain.setText("Days Gain");
                     //getUpdatedNumbers
-                    isSelectedSummaryGain =false;
+                    isSelectedSummaryGain = false;
 
-                }
-                else{
+                } else {
                     daysGain.setText("Total Gain");
-                    isSelectedSummaryGain =true;
+                    isSelectedSummaryGain = true;
                     //getUpdatedNumbers
 
                 }
                 break;
             case R.id.lvSummary:
 
-                if(isSelectedSummaryLv)
-                {
+                if (isSelectedSummaryLv) {
                     lvSummary.setText("latest Value");
                     //getUpdatedNumbers
-                    isSelectedSummaryLv =false;
+                    isSelectedSummaryLv = false;
 
-                }
-                else{
+                } else {
                     lvSummary.setText("Invested Amount");
-                    isSelectedSummaryLv =true;
+                    isSelectedSummaryLv = true;
                     //getUpdatedNumbers
 
                 }
@@ -258,16 +246,14 @@ public class PortfolioDetailFragment extends Fragment implements View.OnClickLis
                 break;
             case R.id.daysGainstock:
 
-                if(isSelectedStockGain)
-                {
+                if (isSelectedStockGain) {
                     daysGainstock.setText("Days Gain");
                     //getUpdatedNumbers
-                    isSelectedStockGain =false;
+                    isSelectedStockGain = false;
 
-                }
-                else{
+                } else {
                     daysGainstock.setText("Total Gain");
-                    isSelectedStockGain =true;
+                    isSelectedStockGain = true;
                     //getUpdatedNumbers
 
                 }
@@ -275,52 +261,45 @@ public class PortfolioDetailFragment extends Fragment implements View.OnClickLis
                 break;
             case R.id.lvStock:
 
-                if(lvselectedStock==0)
-                {
+                if (lvselectedStock == 0) {
                     lvStock.setText("Invested Amount");
                     //getUpdatedNumbers
-                    lvselectedStock =1;
+                    lvselectedStock = 1;
 
-                }
-                else if(lvselectedStock ==1){
+                } else if (lvselectedStock == 1) {
                     lvStock.setText("Quantity");
-                    lvselectedStock =2;
+                    lvselectedStock = 2;
 
-                }
-                else{
+                } else {
                     lvStock.setText("Latest Value");
-                    lvselectedStock =0;
+                    lvselectedStock = 0;
 
                 }
 
                 break;
             case R.id.daysgainMf:
 
-                if(isSelectedMFGain)
-                {
+                if (isSelectedMFGain) {
                     daysgainMf.setText("Days Gain");
                     //getUpdatedNumbers
-                    isSelectedMFGain =false;
+                    isSelectedMFGain = false;
 
-                }
-                else{
+                } else {
                     daysgainMf.setText("Total Gain");
-                    isSelectedMFGain =true;
+                    isSelectedMFGain = true;
                     //getUpdatedNumbers
 
                 }
                 break;
             case R.id.lvMf:
-                if(isSelectedMFLv)
-                {
+                if (isSelectedMFLv) {
                     lvMf.setText("latest Value");
                     //getUpdatedNumbers
-                    isSelectedMFLv =false;
+                    isSelectedMFLv = false;
 
-                }
-                else{
+                } else {
                     lvMf.setText("Invested Amount");
-                    isSelectedMFLv =true;
+                    isSelectedMFLv = true;
                     //getUpdatedNumbers
 
                 }
