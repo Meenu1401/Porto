@@ -223,12 +223,15 @@ public class PortfolioDetailFragment extends Fragment implements View.OnClickLis
                     daysGain.setText("Days Gain");
                     //getUpdatedNumbers
                     isSelectedSummaryGain = false;
+                    adapterSumm.setSelectedSummaryGain(false);
+                    adapterSumm.notifyDataSetChanged();
 
                 } else {
                     daysGain.setText("Total Gain");
                     isSelectedSummaryGain = true;
+                    adapterSumm.setSelectedSummaryGain(true);
+                    adapterSumm.notifyDataSetChanged();
                     //getUpdatedNumbers
-
                 }
                 break;
             case R.id.lvSummary:

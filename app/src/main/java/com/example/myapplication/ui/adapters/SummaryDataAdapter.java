@@ -19,22 +19,20 @@ import java.util.List;
 public class SummaryDataAdapter extends RecyclerView.Adapter<SummaryDataAdapter.ViewHolder> {
 
     private final List<SummaryData> summaryDataList;
+    private boolean isSelectedSummaryGain;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         private final TextView name, latestValue, daysGain,daysGainPer;
-        private final LinearLayout llGain;
         private final View itemseparator;
 
 
         public ViewHolder(View view) {
             super(view);
-            name = (TextView) view.findViewById(R.id.name);
-            latestValue = (TextView) view.findViewById(R.id.latestValue);
-            daysGain = (TextView) view.findViewById(R.id.daysGain);
-            daysGainPer=(TextView) view.findViewById(R.id.daysGainPer);
+            name = view.findViewById(R.id.name);
+            latestValue = view.findViewById(R.id.latestValue);
+            daysGain = view.findViewById(R.id.daysGain);
+            daysGainPer= view.findViewById(R.id.daysGainPer);
             itemseparator= view.findViewById(R.id.itemseparator);
-
-            llGain= view.findViewById(R.id.llGain);
         }
     }
 
@@ -42,8 +40,9 @@ public class SummaryDataAdapter extends RecyclerView.Adapter<SummaryDataAdapter.
         summaryDataList = dataSet;
     }
 
-
-
+    public void setSelectedSummaryGain(boolean selectedSummaryGain) {
+        isSelectedSummaryGain = selectedSummaryGain;
+    }
 
     @NonNull
     @Override
@@ -71,23 +70,23 @@ public class SummaryDataAdapter extends RecyclerView.Adapter<SummaryDataAdapter.
 
 
 
-        if(position%2==0) {
-            viewHolder.daysGain.setTextColor(Color.parseColor("#18A558"));
-            viewHolder.daysGain.setText("+" +summaryData.getDg() + "");
-
-            viewHolder.daysGainPer.setTextColor(Color.parseColor("#18A558"));
+        if(isSelectedSummaryGain){
+            if(position%2==0) {
+                viewHolder.daysGain.setTextColor(Color.parseColor("#18A558"));
+                viewHolder.daysGain.setText("+" +summaryData.getDg() + "");
+                viewHolder.daysGainPer.setTextColor(Color.parseColor("#18A558"));
+            }
+            else{
+                viewHolder.daysGain.setTextColor(Color.parseColor("#FF4C4C"));
+                viewHolder.daysGain.setText("-" +summaryData.getDg() + "");
+                viewHolder.daysGainPer.setTextColor(Color.parseColor("#FF4C4C"));
+            }
             viewHolder.daysGainPer.setText("(" +summaryData.getDg() + "%)");
-
-
-        }
-        else{
-            viewHolder.daysGain.setTextColor(Color.parseColor("#FF4C4C"));
-            viewHolder.daysGain.setText("-" +summaryData.getDg() + "");
-
-            viewHolder.daysGainPer.setTextColor(Color.parseColor("#FF4C4C"));
-            viewHolder.daysGainPer.setText("(" +summaryData.getDg() + "%)");
-        }
-
+        }else
+            {
+                viewHolder.daysGain.setText("+" +summaryData.getTg() + "");
+                viewHolder.daysGainPer.setText("(" +summaryData.getTg() + "%)");
+            }
 
 
         if(position+1 ==summaryDataList.size()){
@@ -95,7 +94,6 @@ public class SummaryDataAdapter extends RecyclerView.Adapter<SummaryDataAdapter.
         }
         else{
             viewHolder.itemseparator.setVisibility(View.VISIBLE);
-
         }
 
 
