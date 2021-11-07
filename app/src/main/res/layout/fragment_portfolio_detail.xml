@@ -338,17 +338,16 @@
                 android:id="@+id/lblAddtoPort"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:background="@color/zee_secondary"
+                 android:background="@color/zee_secondary"
                 android:paddingLeft="30dp"
                 android:paddingTop="10dp"
                 android:paddingRight="30dp"
+                android:textSize="12sp"
                 android:paddingBottom="10dp"
-                android:text="Add to portfolio"
+                android:text="ADD TO PORTFOLIO"
 
                 android:textColor="@color/white"
-                android:textStyle="bold"
-                app:layout_constraintLeft_toLeftOf="parent"
+                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/fakeSep"
                 tools:ignore="MissingConstraints" />
 
@@ -357,17 +356,16 @@
                 android:layout_width="wrap_content"
 
                 android:layout_height="wrap_content"
+                android:textSize="12sp"
 
-                android:layout_marginRight="20dp"
-                android:background="@color/zee_secondary"
+                 android:background="@color/zee_secondary"
                 android:paddingLeft="30dp"
                 android:paddingTop="10dp"
                 android:paddingRight="30dp"
                 android:paddingBottom="10dp"
-                android:text="Edit Portfolio"
+                android:text="EDIT PORTFOLIO"
                 android:textColor="@color/white"
-                android:textStyle="bold"
-                app:layout_constraintRight_toRightOf="parent"
+                 app:layout_constraintRight_toRightOf="parent"
 
                 app:layout_constraintTop_toBottomOf="@+id/fakeSep"
                 tools:ignore="MissingConstraints" />
