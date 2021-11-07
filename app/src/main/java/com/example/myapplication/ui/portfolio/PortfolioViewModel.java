@@ -20,7 +20,7 @@ public class PortfolioViewModel extends ViewModel {
     }
 
     public LiveData<Boolean> login(String username, String password) {
-        if(username.equalsIgnoreCase("M") && password.equalsIgnoreCase("1"))
+        if(username.equalsIgnoreCase("tech@moneycorn.in") && password.equalsIgnoreCase("12345"))
             result.setValue(true);
         else
             result.setValue(false);

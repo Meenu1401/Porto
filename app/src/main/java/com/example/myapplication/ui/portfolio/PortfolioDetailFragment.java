@@ -42,6 +42,7 @@ public class PortfolioDetailFragment extends Fragment implements View.OnClickLis
     private CardView cardviewSummaryList, cardviewMFList, cardviewStockList;
     private TextView lblAddtoPort, daysGain,lvSummary, daysGainstock, lvStock, daysgainMf, lvMf ;
     private boolean isSelectedSummaryGain,isSelectedStockGain,isSelectedMFGain,isSelectedSummaryLv,isSelectedStockLv,isSelectedMFLv ;
+    private int lvselectedStock=0;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -268,17 +269,21 @@ public class PortfolioDetailFragment extends Fragment implements View.OnClickLis
                 break;
             case R.id.lvStock:
 
-                if(isSelectedStockLv)
+                if(lvselectedStock==0)
                 {
-                    lvStock.setText("latest Value");
+                    lvStock.setText("Invested Amount");
                     //getUpdatedNumbers
-                    isSelectedStockLv =false;
+                    lvselectedStock =1;
+
+                }
+                else if(lvselectedStock ==1){
+                    lvStock.setText("Quantity");
+                    lvselectedStock =2;
 
                 }
                 else{
-                    lvStock.setText("Invested Amount");
-                    isSelectedStockLv =true;
-                    //getUpdatedNumbers
+                    lvStock.setText("Latest Value");
+                    lvselectedStock =0;
 
                 }
 
