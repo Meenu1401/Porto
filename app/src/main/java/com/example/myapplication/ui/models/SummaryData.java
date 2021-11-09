@@ -14,70 +14,80 @@ public class SummaryData implements Parcelable {
         this.nm = nm;
     }
 
-    public int getTg() {
+    public String getTg() {
         return tg;
     }
 
-    public void setTg(int tg) {
+    public void setTg(String tg) {
         this.tg = tg;
     }
 
-    public int getTgp() {
+    public String getTgp() {
         return tgp;
     }
 
-    public void setTgp(int tgp) {
+    public void setTgp(String tgp) {
         this.tgp = tgp;
     }
 
-    public int getDg() {
+    public String getDg() {
         return dg;
     }
 
-    public void setDg(int dg) {
+    public void setDg(String dg) {
         this.dg = dg;
     }
 
-    public int getDgp() {
+    public String getDgp() {
         return dgp;
     }
 
-    public void setDgp(int dgp) {
+    public void setDgp(String dgp) {
         this.dgp = dgp;
     }
 
-    public int getInv() {
+    public String getInv() {
         return inv;
     }
 
-    public void setInv(int inv) {
+    public void setInv(String inv) {
         this.inv = inv;
     }
 
-    public int getLv() {
+    public String getLv() {
         return lv;
     }
 
-    public void setLv(int iv) {
+    public void setLv(String iv) {
         this.lv = iv;
     }
 
+    public String getQn() {
+        return qn;
+    }
+
+    public void setQn(String iv) {
+        this.qn = qn;
+    }
+
     String nm;
-    int tg;
-    int tgp;
-    int dg;
-    int dgp;
-    int inv;
-    int lv;
+    String tg;
+    String tgp;
+    String dg;
+    String dgp;
+    String inv;
+    String lv;
+    String qn;
 
     protected SummaryData(Parcel in) {
         nm = in.readString();
-        tg = in.readInt();
-        tgp = in.readInt();
-        dg = in.readInt();
-        dgp = in.readInt();
-        inv = in.readInt();
-        lv = in.readInt();
+        tg = in.readString();
+        tgp = in.readString();
+        dg = in.readString();
+        dgp = in.readString();
+        inv = in.readString();
+        lv = in.readString();
+        qn = in.readString();
     }
 
     public static final Creator<SummaryData> CREATOR = new Creator<SummaryData>() {
@@ -100,11 +110,12 @@ public class SummaryData implements Parcelable {
     @Override
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeString(nm);
-        parcel.writeInt(tg);
-        parcel.writeInt(tgp);
-        parcel.writeInt(dg);
-        parcel.writeInt(dgp);
-        parcel.writeInt(inv);
-        parcel.writeInt(lv);
+        parcel.writeString(tg);
+        parcel.writeString(tgp);
+        parcel.writeString(dg);
+        parcel.writeString(dgp);
+        parcel.writeString(inv);
+        parcel.writeString(lv);
+        parcel.writeString(qn);
     }
 }

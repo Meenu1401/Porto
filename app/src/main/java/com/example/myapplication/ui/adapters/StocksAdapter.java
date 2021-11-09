@@ -1,14 +1,18 @@
 package com.example.myapplication.ui.adapters;
 
 
+import android.content.Context;
 import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myapplication.R;
@@ -19,11 +23,14 @@ import java.util.List;
 public class StocksAdapter extends RecyclerView.Adapter<StocksAdapter.ViewHolder> {
 
     private final List<SummaryData> summaryDataList;
-
+    private Context mContext;
     public static class ViewHolder extends RecyclerView.ViewHolder {
         private final TextView name, latestValue, daysGain,daysGainPer;
-        private final LinearLayout llGain;
-         private final View itemseparator;
+        private final ConstraintLayout llGain;
+        private final View itemseparator;
+        private final ConstraintLayout parentCC;
+
+        private final ImageView markerIcon;
 
         public ViewHolder(View view) {
             super(view);
@@ -33,14 +40,29 @@ public class StocksAdapter extends RecyclerView.Adapter<StocksAdapter.ViewHolder
             llGain= view.findViewById(R.id.llGain);
             daysGainPer=(TextView) view.findViewById(R.id.daysGainPer);
             itemseparator= view.findViewById(R.id.itemseparator);
+            parentCC= view.findViewById(R.id.parentCC);
 
 
+            markerIcon= view.findViewById(R.id.markerIcon);
         }
     }
 
     public StocksAdapter(List<SummaryData> dataSet) {
         summaryDataList = dataSet;
     }
+
+    private boolean isSelectedStockGain;
+    private int lvselectedStock;
+
+
+    public void setSelectedStockGain(boolean selectedSummaryGain) {
+        isSelectedStockGain = selectedSummaryGain;
+    }
+
+    public void setSelectedStockLv(int selectedStockLv) {
+        lvselectedStock = selectedStockLv;
+    }
+
 
     @NonNull
     @Override
@@ -54,31 +76,52 @@ public class StocksAdapter extends RecyclerView.Adapter<StocksAdapter.ViewHolder
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, final int position) {
         SummaryData summaryData = summaryDataList.get(position);
+
+        mContext = viewHolder.parentCC.getContext();
+
         viewHolder.name.setText(summaryData.getNm());
-        viewHolder.latestValue.setText(summaryData.getLv() + "");
-        viewHolder.daysGain.setText(summaryData.getDg() + "");
+
+        if(isSelectedStockGain)  {
+            viewHolder.daysGain.setText(""+summaryData.getTg() + "");
+            viewHolder.daysGainPer.setText(""+summaryData.getTgp() + "%");
+        }
+        else
+        {
+            if(position%2==0) {
+                viewHolder.daysGain.setTextColor(Color.parseColor("#177A3A"));
+                viewHolder.daysGain.setText(""+summaryData.getDg() + "");
+                viewHolder.daysGainPer.setTextColor(Color.parseColor("#177A3A"));
+                viewHolder.llGain.setBackground(ContextCompat.getDrawable(mContext, R.drawable.round_corner_positive));
 
 
+            }
+            else{
+                viewHolder.daysGain.setTextColor(Color.parseColor("#AB1711"));
+                viewHolder.daysGain.setText("" +summaryData.getDg() + "");
+                viewHolder.daysGainPer.setTextColor(Color.parseColor("#AB1711"));
+                viewHolder.llGain.setBackground(ContextCompat.getDrawable(mContext, R.drawable.round_corner_ng));
+
+            }
+            viewHolder.daysGainPer.setText(""+summaryData.getDgp() + "%");
+        }
 
 
-
-
-        if(position%2==0) {
-            viewHolder.daysGain.setTextColor(Color.parseColor("#18A558"));
-            viewHolder.daysGain.setText("+" +summaryData.getDg() + "");
-
-            viewHolder.daysGainPer.setTextColor(Color.parseColor("#18A558"));
-            viewHolder.daysGainPer.setText("(" +summaryData.getDg() + "%)");
-
+        if(lvselectedStock==1)  {
+            viewHolder.latestValue.setText(summaryData.getInv() + "");
+        }
+        else if(lvselectedStock==2)
+        {
+            viewHolder.latestValue.setText(summaryData.getQn() + "");
 
         }
         else{
-            viewHolder.daysGain.setTextColor(Color.parseColor("#FF4C4C"));
-            viewHolder.daysGain.setText("-" +summaryData.getDg() + "");
+            viewHolder.latestValue.setText(summaryData.getLv() + "");
 
-            viewHolder.daysGainPer.setTextColor(Color.parseColor("#FF4C4C"));
-            viewHolder.daysGainPer.setText("(" +summaryData.getDg() + "%)");
         }
+
+
+
+
 
 
 
@@ -96,11 +139,11 @@ public class StocksAdapter extends RecyclerView.Adapter<StocksAdapter.ViewHolder
 
        /* if(position%2==0) {
             viewHolder.llGain.setBackgroundColor(Color.parseColor("#18A558"));
-            viewHolder.daysGain.setText("+" +summaryData.getDg() + "");
+            viewHolder.daysGain.setText(""+summaryData.getDg() + "");
         }
         else{
             viewHolder.llGain.setBackgroundColor(Color.parseColor("#FF4C4C"));
-            viewHolder.daysGain.setText("-" + summaryData.getDg() + "");
+            viewHolder.daysGain.setText("" + summaryData.getDg() + "");
 
         }*/
 

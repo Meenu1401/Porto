@@ -13,8 +13,6 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -33,16 +31,16 @@ import retrofit2.Response;
 
 
 //API
-// top table : https://myjson.dit.upm.es/api/bins/7v99
-// stock table :http://myjson.dit.upm.es/api/bins/eigd
-// mf table :http://myjson.dit.upm.es/api/bins/f6dh
+// top table : http://myjson.dit.upm.es/api/bins/9kit
+// stock table :http://myjson.dit.upm.es/api/bins/dfet
+// mf table :http://myjson.dit.upm.es/api/bins/hxg5
 
 
 public class PortfolioDetailFragment extends Fragment implements View.OnClickListener {
 
     private FragmentPortfolioDetailBinding binding;
     private CardView cardviewSummaryList, cardviewMFList, cardviewStockList;
-    private TextView lblAddtoPort, daysGain, lvSummary, daysGainstock, lvStock, daysgainMf, lvMf;
+    private TextView lblAddtoPort,lblEditPOrt, daysGain, lvSummary, daysGainstock, lvStock, daysgainMf, lvMf;
     private boolean isSelectedSummaryGain, isSelectedStockGain, isSelectedMFGain, isSelectedSummaryLv, isSelectedStockLv, isSelectedMFLv;
     private int lvselectedStock = 0;
 
@@ -70,6 +68,7 @@ public class PortfolioDetailFragment extends Fragment implements View.OnClickLis
         cardviewMFList.setVisibility(View.GONE);
 
         lblAddtoPort = view.findViewById(R.id.lblAddtoPort);
+        lblEditPOrt= view.findViewById(R.id.lblEditPOrt);
 
         daysGain = view.findViewById(R.id.daysGain);
         daysGain.setOnClickListener(this);
@@ -135,7 +134,9 @@ public class PortfolioDetailFragment extends Fragment implements View.OnClickLis
         binding = null;
     }
 
-    SummaryDataAdapter adapterSumm;
+    private SummaryDataAdapter adapterSumm;
+
+
 
     private void getTopTable() {
         Call<Items> call = RetrofitClient.getInstance().getMyApi().getTopTable();
@@ -152,6 +153,9 @@ public class PortfolioDetailFragment extends Fragment implements View.OnClickLis
 
                     cardviewSummaryList.animate().translationY(cardviewSummaryList.getHeight());
                     cardviewSummaryList.setVisibility(View.VISIBLE);
+                    lblAddtoPort.setVisibility(View.VISIBLE);
+                    lblEditPOrt.setVisibility(View.VISIBLE);
+
                 }
 
             }
@@ -163,6 +167,7 @@ public class PortfolioDetailFragment extends Fragment implements View.OnClickLis
 
         });
     }
+    private StocksAdapter adapterStock;
 
     private void getStockTable() {
         Call<Items> call = RetrofitClient.getInstance().getMyApi().getStockTable();
@@ -175,10 +180,10 @@ public class PortfolioDetailFragment extends Fragment implements View.OnClickLis
                     cardviewStockList.setVisibility(View.VISIBLE);
 
                     Items myheroList = response.body();
-                    StocksAdapter adapter = new StocksAdapter(myheroList.getList());
+                    adapterStock = new StocksAdapter(myheroList.getList());
                     binding.recyclerStock.setHasFixedSize(true);
                     binding.recyclerStock.setLayoutManager(new LinearLayoutManager(requireContext()));
-                    binding.recyclerStock.setAdapter(adapter);
+                    binding.recyclerStock.setAdapter(adapterStock);
                 }
             }
 
@@ -189,6 +194,8 @@ public class PortfolioDetailFragment extends Fragment implements View.OnClickLis
 
         });
     }
+
+    private MFAdapter adapterMf;
 
     private void getMFTable() {
         Call<Items> call = RetrofitClient.getInstance().getMyApi().getMFTable();
@@ -201,10 +208,10 @@ public class PortfolioDetailFragment extends Fragment implements View.OnClickLis
                     cardviewMFList.setVisibility(View.VISIBLE);
 
                     Items myheroList = response.body();
-                    MFAdapter adapter = new MFAdapter(myheroList.getList());
+                    adapterMf = new MFAdapter(myheroList.getList());
                     binding.recyclerMf.setHasFixedSize(true);
                     binding.recyclerMf.setLayoutManager(new LinearLayoutManager(requireContext()));
-                    binding.recyclerMf.setAdapter(adapter);
+                    binding.recyclerMf.setAdapter(adapterMf);
                 }
             }
 
@@ -222,7 +229,7 @@ public class PortfolioDetailFragment extends Fragment implements View.OnClickLis
         switch (view.getId()) {
             case R.id.daysGain:
                 if (isSelectedSummaryGain) {
-                    daysGain.setText("Days Gain");
+                    daysGain.setText("Day's Gain");
                     isSelectedSummaryGain = false;
                 } else {
                     daysGain.setText("Total Gain");
@@ -243,12 +250,14 @@ public class PortfolioDetailFragment extends Fragment implements View.OnClickLis
                     //getUpdatedNumbers
 
                 }
+                adapterSumm.setSelectedSummaryLv(isSelectedSummaryLv);
+                adapterSumm.notifyDataSetChanged();
 
                 break;
             case R.id.daysGainstock:
 
                 if (isSelectedStockGain) {
-                    daysGainstock.setText("Days Gain");
+                    daysGainstock.setText("Day's Gain");
                     //getUpdatedNumbers
                     isSelectedStockGain = false;
 
@@ -258,6 +267,9 @@ public class PortfolioDetailFragment extends Fragment implements View.OnClickLis
                     //getUpdatedNumbers
 
                 }
+
+                adapterStock.setSelectedStockGain(isSelectedStockGain);
+                adapterStock.notifyDataSetChanged();
 
                 break;
             case R.id.lvStock:
@@ -277,11 +289,14 @@ public class PortfolioDetailFragment extends Fragment implements View.OnClickLis
 
                 }
 
+
+                adapterStock.setSelectedStockLv(lvselectedStock);
+                adapterStock.notifyDataSetChanged();
                 break;
             case R.id.daysgainMf:
 
                 if (isSelectedMFGain) {
-                    daysgainMf.setText("Days Gain");
+                    daysgainMf.setText("Day's Gain");
                     //getUpdatedNumbers
                     isSelectedMFGain = false;
 
@@ -291,6 +306,9 @@ public class PortfolioDetailFragment extends Fragment implements View.OnClickLis
                     //getUpdatedNumbers
 
                 }
+                adapterMf.setSelectedMFGain(isSelectedMFGain);
+                adapterMf.notifyDataSetChanged();
+
                 break;
             case R.id.lvMf:
                 if (isSelectedMFLv) {
@@ -304,6 +322,11 @@ public class PortfolioDetailFragment extends Fragment implements View.OnClickLis
                     //getUpdatedNumbers
 
                 }
+
+                adapterMf.setSelectedMFLv(isSelectedMFLv);
+                adapterMf.notifyDataSetChanged();
+
+
                 break;
 
         }

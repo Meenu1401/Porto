@@ -12,12 +12,12 @@ public interface Api {
 
     String BASE_URL = "https://myjson.dit.upm.es/api/";
 
-    @GET("bins/7v99")
+    @GET("bins/9kit")
     Call<Items> getTopTable();
 
-    @GET("bins/eigd")
+    @GET("bins/dfet")
     Call<Items> getStockTable();
 
-    @GET("bins/f6dh")
+    @GET("bins/hxg5")
     Call<Items> getMFTable();
 }
