@@ -31,7 +31,7 @@ import retrofit2.Response;
 
 
 //API
-// top table : http://myjson.dit.upm.es/api/bins/9kit
+// top table : http://myjson.dit.upm.es/api/bins/e2k5
 // stock table :http://myjson.dit.upm.es/api/bins/dfet
 // mf table :http://myjson.dit.upm.es/api/bins/hxg5
 

@@ -15,7 +15,7 @@ public class SummaryData implements Parcelable {
     }
 
     public String getTg() {
-        return tg;
+        return "₹"+tg;
     }
 
     public void setTg(String tg) {
@@ -31,7 +31,7 @@ public class SummaryData implements Parcelable {
     }
 
     public String getDg() {
-        return dg;
+        return "₹"+dg;
     }
 
     public void setDg(String dg) {
@@ -47,7 +47,7 @@ public class SummaryData implements Parcelable {
     }
 
     public String getInv() {
-        return inv;
+        return "₹"+inv;
     }
 
     public void setInv(String inv) {
@@ -55,7 +55,7 @@ public class SummaryData implements Parcelable {
     }
 
     public String getLv() {
-        return lv;
+        return "₹"+lv;
     }
 
     public void setLv(String iv) {
@@ -70,6 +70,13 @@ public class SummaryData implements Parcelable {
         this.qn = qn;
     }
 
+    public String getSp() {
+        return "₹"+sp;
+    }
+
+    public void setSp(String sp) {
+        this.sp = sp;
+    }
     String nm;
     String tg;
     String tgp;
@@ -78,6 +85,7 @@ public class SummaryData implements Parcelable {
     String inv;
     String lv;
     String qn;
+    String sp;
 
     protected SummaryData(Parcel in) {
         nm = in.readString();
@@ -88,6 +96,7 @@ public class SummaryData implements Parcelable {
         inv = in.readString();
         lv = in.readString();
         qn = in.readString();
+        sp = in.readString();
     }
 
     public static final Creator<SummaryData> CREATOR = new Creator<SummaryData>() {
@@ -117,5 +126,7 @@ public class SummaryData implements Parcelable {
         parcel.writeString(inv);
         parcel.writeString(lv);
         parcel.writeString(qn);
+
+        parcel.writeString(sp);
     }
 }

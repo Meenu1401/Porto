@@ -20,16 +20,33 @@
         android:paddingRight="10dp"
         android:layout_height="wrap_content"
         tools:ignore="MissingConstraints">
-        <TextView
-            android:id="@+id/name"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:gravity="center_vertical"
 
+
+        <LinearLayout
+            android:id="@+id/llStockId"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:text="Stocks"
-            tools:ignore="MissingConstraints" />
+            android:orientation="vertical" >
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:gravity="center_vertical"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:text="Stocks"
+                tools:ignore="MissingConstraints" />
+            <TextView
+                android:id="@+id/stockPrice"
+                android:layout_width="wrap_content"
+                android:text="price"
+                android:visibility="gone"
+                android:textColor="@color/title_color"
+                android:layout_height="wrap_content"
+                />
+        </LinearLayout>
+
+
 
 
 

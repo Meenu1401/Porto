@@ -25,7 +25,7 @@ public class StocksAdapter extends RecyclerView.Adapter<StocksAdapter.ViewHolder
     private final List<SummaryData> summaryDataList;
     private Context mContext;
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        private final TextView name, latestValue, daysGain,daysGainPer;
+        private final TextView name, latestValue, daysGain,daysGainPer,stockPrice;
         private final ConstraintLayout llGain;
         private final View itemseparator;
         private final ConstraintLayout parentCC;
@@ -37,6 +37,8 @@ public class StocksAdapter extends RecyclerView.Adapter<StocksAdapter.ViewHolder
             name = (TextView) view.findViewById(R.id.name);
             latestValue = (TextView) view.findViewById(R.id.latestValue);
             daysGain = (TextView) view.findViewById(R.id.daysGain);
+            stockPrice= (TextView) view.findViewById(R.id.stockPrice);
+
             llGain= view.findViewById(R.id.llGain);
             daysGainPer=(TextView) view.findViewById(R.id.daysGainPer);
             itemseparator= view.findViewById(R.id.itemseparator);
@@ -80,7 +82,9 @@ public class StocksAdapter extends RecyclerView.Adapter<StocksAdapter.ViewHolder
         mContext = viewHolder.parentCC.getContext();
 
         viewHolder.name.setText(summaryData.getNm());
+        viewHolder.stockPrice.setText(summaryData.getSp());
 
+        viewHolder.stockPrice.setVisibility(View.VISIBLE);
         if(isSelectedStockGain)  {
             viewHolder.daysGain.setText(""+summaryData.getTg() + "");
             viewHolder.daysGainPer.setText(""+summaryData.getTgp() + "%");
