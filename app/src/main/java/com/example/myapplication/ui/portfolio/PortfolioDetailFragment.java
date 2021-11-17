@@ -105,22 +105,19 @@ public class PortfolioDetailFragment extends Fragment implements View.OnClickLis
     }
 
     private void showAlertDialog() {
-        AlertDialog.Builder alertDialog = new AlertDialog.Builder(getContext());
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(getContext(), R.style.CustomAlertDialog);
         String[] items = {"Stock", "Mutual Fund"};
         int checkedItem = 3;
-        alertDialog.setSingleChoiceItems(items, checkedItem, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                switch (which) {
-                    case 0:
-                        Toast.makeText(getContext(), "Navigate to the Add stock page", Toast.LENGTH_LONG).show();
-                        dialog.dismiss();
-                        break;
-                    case 1:
-                        Toast.makeText(getContext(), "Navigate to the Add Mutual funds page", Toast.LENGTH_LONG).show();
-                        dialog.dismiss();
-                        break;
-                }
+        alertDialog.setSingleChoiceItems(items, checkedItem, (dialog, which) -> {
+            switch (which) {
+                case 0:
+                    Toast.makeText(getContext(), "Navigate to the Add stock page", Toast.LENGTH_LONG).show();
+                    dialog.dismiss();
+                    break;
+                case 1:
+                    Toast.makeText(getContext(), "Navigate to the Add Mutual funds page", Toast.LENGTH_LONG).show();
+                    dialog.dismiss();
+                    break;
             }
         });
         AlertDialog alert = alertDialog.create();
