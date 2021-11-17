@@ -778,8 +778,10 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:paddingLeft="10dp"
+                android:textColor="@color/title_color"
+
                 android:id="@+id/newsTitleTop"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="30dp"
                 app:layout_constraintTop_toBottomOf="@+id/cardviewMFList"
                 android:textSize="18sp"
                 android:text="Your portfolio in the news"
@@ -787,6 +789,7 @@
 
             <ImageView
                 android:id="@+id/newsImage"
+                android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
                 app:layout_constraintTop_toBottomOf="@+id/newsTitleTop"
                 android:src="@drawable/news"
