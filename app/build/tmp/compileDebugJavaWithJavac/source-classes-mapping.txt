@@ -42,7 +42,6 @@ com/example/myapplication/ui/portfolio/PortfolioDetailFragment.java
  com.example.myapplication.ui.portfolio.PortfolioDetailFragment$3
  com.example.myapplication.ui.portfolio.PortfolioDetailFragment$4
  com.example.myapplication.ui.portfolio.PortfolioDetailFragment$5
- com.example.myapplication.ui.portfolio.PortfolioDetailFragment$6
 com/example/myapplication/ui/adapters/SummaryDataAdapter.java
  com.example.myapplication.ui.adapters.SummaryDataAdapter
  com.example.myapplication.ui.adapters.SummaryDataAdapter$ViewHolder
