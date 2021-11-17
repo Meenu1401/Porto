@@ -47,7 +47,7 @@ public class PortfolioDetailFragment extends Fragment implements View.OnClickLis
     private boolean isCurrentvalue, isTotalreturn  , isSelectedSummaryGain, isSelectedStockGain, isSelectedMFGain, isSelectedSummaryLv, isSelectedStockLv, isSelectedMFLv;
 
     private TextView currentvalueAmount, valuetotalreturn, sumCardTotalPercent;
-    private LinearLayout lltotalReturn;
+    private LinearLayout lltotalReturn, llValue,llGrowth;
     private ImageView growthMark;
 
 
@@ -100,10 +100,15 @@ public class PortfolioDetailFragment extends Fragment implements View.OnClickLis
         lvMf.setOnClickListener(this);
 
         totalreturn = view.findViewById(R.id.totalreturn);
-        totalreturn.setOnClickListener(this);
-
         currentvalue = view.findViewById(R.id.currentvalue);
-        currentvalue.setOnClickListener(this);
+
+
+
+        llValue = view.findViewById(R.id.llValue);
+        llValue.setOnClickListener(this);
+
+        llGrowth = view.findViewById(R.id.llGrowth);
+        llGrowth.setOnClickListener(this);
 
 
         currentvalueAmount = view.findViewById(R.id.currentvalueAmount);
@@ -195,7 +200,7 @@ public class PortfolioDetailFragment extends Fragment implements View.OnClickLis
             @Override
             public void onFailure(Call<Items> call, Throwable t) {
                 if(requireContext()!=null)
-                 Toast.makeText(requireContext(), "An error has occured", Toast.LENGTH_LONG).show();
+                    Toast.makeText(requireContext(), "An error has occured", Toast.LENGTH_LONG).show();
             }
 
         });
@@ -223,7 +228,7 @@ public class PortfolioDetailFragment extends Fragment implements View.OnClickLis
             @Override
             public void onFailure(Call<Items> call, Throwable t) {
                 if(requireContext()!=null)
-                Toast.makeText(requireContext(), "An error has occured", Toast.LENGTH_LONG).show();
+                    Toast.makeText(requireContext(), "An error has occured", Toast.LENGTH_LONG).show();
             }
 
         });
@@ -364,7 +369,7 @@ public class PortfolioDetailFragment extends Fragment implements View.OnClickLis
                 break;
 
 
-            case R.id.currentvalue:
+            case R.id.llValue:
 
                 if (isCurrentvalue) {
                     currentvalue.setText("Invested Amount");
@@ -378,7 +383,7 @@ public class PortfolioDetailFragment extends Fragment implements View.OnClickLis
                 }
 
                 break;
-            case R.id.totalreturn:
+            case R.id.llGrowth:
                 if (isTotalreturn) {
                     totalreturn.setText("1 Day's Return");
                     valuetotalreturn.setText("-300.00");
