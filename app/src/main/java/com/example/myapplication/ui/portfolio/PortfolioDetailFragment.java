@@ -194,7 +194,8 @@ public class PortfolioDetailFragment extends Fragment implements View.OnClickLis
 
             @Override
             public void onFailure(Call<Items> call, Throwable t) {
-                Toast.makeText(getContext(), "An error has occured", Toast.LENGTH_LONG).show();
+                if(requireContext()!=null)
+                 Toast.makeText(requireContext(), "An error has occured", Toast.LENGTH_LONG).show();
             }
 
         });
@@ -221,6 +222,7 @@ public class PortfolioDetailFragment extends Fragment implements View.OnClickLis
 
             @Override
             public void onFailure(Call<Items> call, Throwable t) {
+                if(requireContext()!=null)
                 Toast.makeText(requireContext(), "An error has occured", Toast.LENGTH_LONG).show();
             }
 
@@ -249,7 +251,7 @@ public class PortfolioDetailFragment extends Fragment implements View.OnClickLis
 
             @Override
             public void onFailure(Call<Items> call, Throwable t) {
-                Toast.makeText(requireContext(), "An error has occured", Toast.LENGTH_LONG).show();
+                Toast.makeText(requireActivity(), "An error has occured", Toast.LENGTH_LONG).show();
             }
 
         });
