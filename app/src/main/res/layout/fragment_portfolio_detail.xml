@@ -31,8 +31,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                app:defaultQueryHint="asdasdad"
-                app:queryHint="@string/search_text"
+                 app:queryHint="@string/search_text"
                 android:background="@drawable/roundsearch"
                 app:layout_constraintTop_toTopOf="@+id/parent" />
 
