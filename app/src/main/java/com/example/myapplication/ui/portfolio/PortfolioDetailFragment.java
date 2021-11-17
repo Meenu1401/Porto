@@ -29,6 +29,9 @@ import com.example.myapplication.ui.adapters.SummaryDataAdapter;
 import com.example.myapplication.ui.models.Items;
 import com.example.myapplication.ui.retrofit.RetrofitClient;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -47,7 +50,7 @@ public class PortfolioDetailFragment extends Fragment implements View.OnClickLis
     private TextView currentvalue,totalreturn, lblAddtoPort,lblEditPOrt, daysGain, lvSummary, daysGainstock, lvStock, daysgainMf, lvMf;
     private boolean isCurrentvalue, isTotalreturn  , isSelectedSummaryGain, isSelectedStockGain, isSelectedMFGain, isSelectedSummaryLv, isSelectedStockLv, isSelectedMFLv;
 
-    private TextView currentvalueAmount, valuetotalreturn, sumCardTotalPercent;
+    private TextView currentvalueAmount, valuetotalreturn, sumCardTotalPercent,dateAndTime;
     private LinearLayout lltotalReturn, llValue,llGrowth;
     private ImageView growthMark;
 
@@ -103,6 +106,11 @@ public class PortfolioDetailFragment extends Fragment implements View.OnClickLis
         totalreturn = view.findViewById(R.id.totalreturn);
         currentvalue = view.findViewById(R.id.currentvalue);
 
+        dateAndTime=view.findViewById(R.id.dateAndTime);
+
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd G 'at' HH:mm:ss z");
+        String currentDateandTime = sdf.format(new Date());
+        dateAndTime.setText(currentDateandTime);
 
 
         llValue = view.findViewById(R.id.llValue);
@@ -373,41 +381,50 @@ public class PortfolioDetailFragment extends Fragment implements View.OnClickLis
             case R.id.llValue:
 
                 if (isCurrentvalue) {
-                    currentvalue.setText("Invested Amount");
-                    currentvalueAmount.setText("1,200,000");
+                    currentvalue.setText("Current Value");
+                    currentvalueAmount.setText("1,645,371");
+
                     isCurrentvalue = false;
                 } else {
 
-                    currentvalue.setText("Current Value");
-                    currentvalueAmount.setText("1,600,000");
+                    currentvalue.setText("Invested Amount");
+                    currentvalueAmount.setText("1,273,184");
+
                     isCurrentvalue = true;
                 }
 
                 break;
             case R.id.llGrowth:
                 if (isTotalreturn) {
-                    totalreturn.setText("1 Day's Return");
-                    valuetotalreturn.setText("-300.00");
-                    sumCardTotalPercent.setText("3.23%");
 
-                    sumCardTotalPercent.setTextColor(Color.parseColor("#AB1711"));
-
-                    lltotalReturn.setBackgroundResource(R.drawable.round_corner_ng);
-
-                    growthMark.setImageResource(R.drawable.arrow_down);
-
-
-                    isTotalreturn = false;
-                } else {
                     totalreturn.setText("Total Return");
-                    valuetotalreturn.setText("400,000.00");
+                    valuetotalreturn.setText("+423,872.20");
                     isTotalreturn = true;
-                    sumCardTotalPercent.setText("26.45%");
+                    sumCardTotalPercent.setText("23.65%");
 
                     sumCardTotalPercent.setTextColor(ContextCompat.getColor(view.getContext(),R.color.positive ));
 
                     lltotalReturn.setBackgroundResource(R.drawable.round_corner_positive);
                     growthMark.setImageResource(R.drawable.arrow_up);
+
+
+
+                    isTotalreturn = false;
+                } else {
+
+
+                    totalreturn.setText("Day's Return");
+                    valuetotalreturn.setText("-367.55");
+                    sumCardTotalPercent.setText("3.23%");
+
+                    sumCardTotalPercent.setTextColor(ContextCompat.getColor(view.getContext(),R.color.negative ));
+
+                    lltotalReturn.setBackgroundResource(R.drawable.round_corner_ng);
+
+                    growthMark.setImageResource(R.drawable.arrow_down);
+                    isTotalreturn = true;
+
+
 
 
 
