@@ -110,7 +110,7 @@ public class PortfolioDetailFragment extends Fragment implements View.OnClickLis
 
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd G 'at' HH:mm:ss z");
         String currentDateandTime = sdf.format(new Date());
-        dateAndTime.setText(currentDateandTime);
+        dateAndTime.setText(currentDateandTime+" . INR ");
 
 
         llValue = view.findViewById(R.id.llValue);
@@ -403,6 +403,7 @@ public class PortfolioDetailFragment extends Fragment implements View.OnClickLis
                     sumCardTotalPercent.setText("23.65%");
 
                     sumCardTotalPercent.setTextColor(ContextCompat.getColor(view.getContext(),R.color.positive ));
+                    valuetotalreturn.setTextColor(ContextCompat.getColor(view.getContext(),R.color.positive ));
 
                     lltotalReturn.setBackgroundResource(R.drawable.round_corner_positive);
                     growthMark.setImageResource(R.drawable.arrow_up);
@@ -418,6 +419,8 @@ public class PortfolioDetailFragment extends Fragment implements View.OnClickLis
                     sumCardTotalPercent.setText("3.23%");
 
                     sumCardTotalPercent.setTextColor(ContextCompat.getColor(view.getContext(),R.color.negative ));
+                    valuetotalreturn.setTextColor(ContextCompat.getColor(view.getContext(),R.color.negative ));
+
 
                     lltotalReturn.setBackgroundResource(R.drawable.round_corner_ng);
 
