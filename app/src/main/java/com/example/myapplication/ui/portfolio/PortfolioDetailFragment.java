@@ -2,12 +2,15 @@ package com.example.myapplication.ui.portfolio;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.Transformation;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -40,9 +43,17 @@ public class PortfolioDetailFragment extends Fragment implements View.OnClickLis
 
     private FragmentPortfolioDetailBinding binding;
     private CardView cardviewSummaryList, cardviewMFList, cardviewStockList;
-    private TextView lblAddtoPort,lblEditPOrt, daysGain, lvSummary, daysGainstock, lvStock, daysgainMf, lvMf;
-    private boolean isSelectedSummaryGain, isSelectedStockGain, isSelectedMFGain, isSelectedSummaryLv, isSelectedStockLv, isSelectedMFLv;
+    private TextView currentvalue,totalreturn, lblAddtoPort,lblEditPOrt, daysGain, lvSummary, daysGainstock, lvStock, daysgainMf, lvMf;
+    private boolean isCurrentvalue, isTotalreturn  , isSelectedSummaryGain, isSelectedStockGain, isSelectedMFGain, isSelectedSummaryLv, isSelectedStockLv, isSelectedMFLv;
+
+    private TextView currentvalueAmount, valuetotalreturn, sumCardTotalPercent;
+    private LinearLayout lltotalReturn;
+    private ImageView growthMark;
+
+
     private int lvselectedStock = 0;
+
+
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -87,6 +98,30 @@ public class PortfolioDetailFragment extends Fragment implements View.OnClickLis
 
         lvMf = view.findViewById(R.id.lvMf);
         lvMf.setOnClickListener(this);
+
+        totalreturn = view.findViewById(R.id.totalreturn);
+        totalreturn.setOnClickListener(this);
+
+        currentvalue = view.findViewById(R.id.currentvalue);
+        currentvalue.setOnClickListener(this);
+
+
+        currentvalueAmount = view.findViewById(R.id.currentvalueAmount);
+        valuetotalreturn = view.findViewById(R.id.valuetotalreturn);
+        sumCardTotalPercent = view.findViewById(R.id.sumCardTotalPercent);
+        lltotalReturn = view.findViewById(R.id.lltotalReturn);
+        growthMark = view.findViewById(R.id.growthMark);
+
+
+
+
+
+
+
+
+
+
+
 
 
         getTopTable();
@@ -326,9 +361,69 @@ public class PortfolioDetailFragment extends Fragment implements View.OnClickLis
 
                 break;
 
+
+            case R.id.currentvalue:
+
+                if (isCurrentvalue) {
+                    currentvalue.setText("Invested Amount");
+                    currentvalueAmount.setText("1,200,000");
+                    isCurrentvalue = false;
+                } else {
+
+                    currentvalue.setText("Current Value");
+                    currentvalueAmount.setText("1,600,000");
+                    isCurrentvalue = true;
+                }
+
+                break;
+            case R.id.totalreturn:
+                if (isTotalreturn) {
+                    totalreturn.setText("1 Day's Return");
+                    valuetotalreturn.setText("-300.00");
+                    sumCardTotalPercent.setText("3.23%");
+
+                    sumCardTotalPercent.setTextColor(Color.parseColor("#AB1711"));
+
+                    lltotalReturn.setBackgroundResource(R.drawable.round_corner_ng);
+
+                    lltotalReturn.setPadding(5,5,5,5);
+                    growthMark.setImageResource(R.drawable.arrow_down);
+
+
+                    isTotalreturn = false;
+                } else {
+                    totalreturn.setText("Total Return");
+                    valuetotalreturn.setText("400,000.00");
+                    isTotalreturn = true;
+                    sumCardTotalPercent.setText("26.45%");
+                    lltotalReturn.setPadding(5,5,5,5);
+
+
+                    sumCardTotalPercent.setTextColor(Color.parseColor("#177A3A"));
+
+                    lltotalReturn.setBackgroundResource(R.drawable.round_corner_positive);
+                    growthMark.setImageResource(R.drawable.arrow_up);
+
+
+
+                }
+                break;
         }
 
     }
+
+/*
+    private TextView , valuetotalreturn, sumCardTotalPercent;
+    private LinearLayout lltotalReturn;
+    private ImageView growthMark;
+*/
+
+
+
+
+
+
+
 
     public static void expand(final View v) {
         int matchParentMeasureSpec = View.MeasureSpec.makeMeasureSpec(((View) v.getParent()).getWidth(), View.MeasureSpec.EXACTLY);

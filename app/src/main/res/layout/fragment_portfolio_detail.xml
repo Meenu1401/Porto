@@ -81,11 +81,18 @@
                         android:id="@+id/currentvalue"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Current Value"
+                        android:text="CURRENT VALUE"
                         android:textColor="@color/title_color"
 
-                        app:layout_constraintTop_toTopOf="@+id/foliodetail"
+                        app:layout_constraintTop_toTopOf="parent"
                         tools:ignore="MissingConstraints" />
+
+                    <ImageView
+                        android:layout_width="10dp"
+                        android:id="@+id/dacoMirror"
+                        android:src="@drawable/dacomirror"
+                        app:layout_constraintRight_toLeftOf="@+id/view"
+                        android:layout_height="10dp"/>
 
                     <TextView
                         android:id="@+id/currentvalueAmount"
@@ -98,37 +105,17 @@
                         app:layout_constraintTop_toBottomOf="@+id/currentvalue"
                         tools:ignore="MissingConstraints" />
 
-                    <TextView
-                        android:id="@+id/investedvalue"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Invested Amount"
 
-                        android:textColor="@color/title_color"
-
-                        android:layout_marginTop="10dp"
-                        app:layout_constraintTop_toBottomOf="@+id/currentvalueAmount"
-                        tools:ignore="MissingConstraints" />
-
-                    <TextView
-                        android:id="@+id/investedvalueAmount"
-
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="1,200,000"
-                        android:textColor="@color/value_color"
-                        android:textSize="30dp"
-                        app:layout_constraintTop_toBottomOf="@+id/investedvalue"
-                        tools:ignore="MissingConstraints" />
 
                     <View
                         android:id="@+id/view"
+                        app:layout_constraintTop_toTopOf="@+id/currentvalue"
                         android:layout_width="1dp"
-                        android:layout_height="300dp"
+                        android:layout_height="50dp"
                         android:layout_marginLeft="20dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/currentvalueAmount"
 
                         android:background="@color/gray"
-                        app:layout_constraintBottom_toBottomOf="@+id/llDaysReturn"
                         app:layout_constraintLeft_toRightOf="@+id/currentvalueAmount" />
 
                     <TextView
@@ -141,6 +128,12 @@
                         android:textColor="@color/title_color"
 
                         app:layout_constraintLeft_toRightOf="@+id/view" />
+                    <ImageView
+                        android:layout_width="10dp"
+                        android:id="@+id/dacoMirror2"
+                        android:src="@drawable/dacomirror"
+                        app:layout_constraintRight_toRightOf="parent"
+                        android:layout_height="10dp"/>
 
                     <TextView
                         android:id="@+id/valuetotalreturn"
@@ -174,6 +167,7 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
                         <ImageView
+                            android:id="@+id/growthMark"
                             android:layout_width="16dp"
                             android:src="@drawable/arrow_up"
                             android:layout_height="16dp"/>
@@ -193,68 +187,9 @@
 
 
 
-                    <TextView
-                        android:id="@+id/daysreturn"
-                        android:layout_width="wrap_content"
-
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginTop="40dp"
-                        android:text="1 Day's Return"
-                        android:textColor="@color/title_color"
-
-                        app:layout_constraintLeft_toRightOf="@+id/view"
-                        app:layout_constraintTop_toBottomOf="@+id/valuetotalreturn" />
-
-                    <TextView
-                        android:id="@+id/summaryDaysreturn"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:text="-300"
-
-                        android:textColor="@color/negative"
-                        android:textSize="16dp"
-                        app:layout_constraintLeft_toRightOf="@+id/view"
-                        app:layout_constraintTop_toBottomOf="@+id/daysreturn" />
 
 
 
-
-
-
-                    <LinearLayout
-                        android:id="@+id/llDaysReturn"
-                        android:layout_marginLeft="20dp"
-                        android:padding="5dp"
-                        android:paddingTop="5dp"
-                        android:paddingBottom="5dp"
-
-                        app:layout_constraintLeft_toRightOf="@+id/view"
-
-                        app:layout_constraintTop_toBottomOf="@+id/summaryDaysreturn"
-
-                        android:gravity="center_vertical"
-                        android:background="@drawable/round_corner_ng"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-                        <ImageView
-                            android:layout_width="16dp"
-                            android:src="@drawable/arrow_down"
-                            android:layout_height="16dp"/>
-
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="33.33%"
-                            android:textColor="@color/negative"
-
-
-                            />
-
-                    </LinearLayout>
 
 
 

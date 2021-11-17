@@ -90,7 +90,7 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /Users/mm/.
 	android:allowBackup
 		ADDED from /Users/mm/AndroidStudioProjects/Porto/app/src/main/AndroidManifest.xml:8:9-35
 	android:theme
-		ADDED from /Users/mm/AndroidStudioProjects/Porto/app/src/main/AndroidManifest.xml:14:9-51
+		ADDED from /Users/mm/AndroidStudioProjects/Porto/app/src/main/AndroidManifest.xml:14:9-40
 	android:name
 		ADDED from /Users/mm/AndroidStudioProjects/Porto/app/src/main/AndroidManifest.xml:9:9-30
 activity#com.example.myapplication.MainActivity

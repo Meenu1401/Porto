@@ -5,8 +5,6 @@ com/example/myapplication/ui/adapters/SummaryDataAdapter.java
  com.example.myapplication.ui.adapters.SummaryDataAdapter$ViewHolder
 com/example/myapplication/databinding/LoginsignuppageBinding.java
  com.example.myapplication.databinding.LoginsignuppageBinding
-com/example/myapplication/databinding/FragmentPortfolioDetailOldBinding.java
- com.example.myapplication.databinding.FragmentPortfolioDetailOldBinding
 com/example/myapplication/ui/login/SignUpFragment.java
  com.example.myapplication.ui.login.SignUpFragment
 com/example/myapplication/ui/news/NewsViewModel.java
@@ -42,8 +40,8 @@ com/example/myapplication/ui/portfolio/PortfolioDetailFragment.java
  com.example.myapplication.ui.portfolio.PortfolioDetailFragment$3
  com.example.myapplication.ui.portfolio.PortfolioDetailFragment$4
  com.example.myapplication.ui.portfolio.PortfolioDetailFragment$5
-com/example/myapplication/databinding/FragmentNewsBinding.java
- com.example.myapplication.databinding.FragmentNewsBinding
+com/example/myapplication/MainActivity.java
+ com.example.myapplication.MainActivity
 com/example/myapplication/ui/models/Items.java
  com.example.myapplication.ui.models.Items
 com/example/myapplication/ui/retrofit/Api.java
@@ -88,5 +86,5 @@ com/example/myapplication/ui/news/NewsFragment.java
  com.example.myapplication.ui.news.NewsFragment
 com/example/myapplication/databinding/LoginresetpassBinding.java
  com.example.myapplication.databinding.LoginresetpassBinding
-com/example/myapplication/MainActivity.java
- com.example.myapplication.MainActivity
+com/example/myapplication/databinding/FragmentNewsBinding.java
+ com.example.myapplication.databinding.FragmentNewsBinding
