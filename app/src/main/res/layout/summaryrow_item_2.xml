@@ -60,6 +60,9 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/llGain"
+                android:paddingLeft="10dp"
+
+                android:paddingRight="10dp"
                 android:background="@drawable/round_corner_ng"
                 android:layout_width="wrap_content"
                 android:orientation="vertical"
@@ -68,6 +71,8 @@
                     android:layout_width="wrap_content"
                     android:id="@+id/daysGain"
                     android:text="34445"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
 
                     android:textColor="#FF4C4C"
                     app:layout_constraintTop_toTopOf="@+id/llGain"

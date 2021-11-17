@@ -88,7 +88,7 @@ public class SummaryDataAdapter extends RecyclerView.Adapter<SummaryDataAdapter.
                 viewHolder.daysGain.setTextColor(Color.parseColor("#177A3A"));
                 viewHolder.daysGain.setText("" +summaryData.getDg() + "");
                 viewHolder.daysGainPer.setTextColor(Color.parseColor("#177A3A"));
-//                viewHolder.markerIcon.setImageResource(ContextCompat.getDrawable(mContext, R.drawable.arrow_up));
+                viewHolder.markerIcon.setImageResource(R.drawable.arrow_up);
                 viewHolder.llGain.setBackground(ContextCompat.getDrawable(mContext, R.drawable.round_corner_positive));
 
 
@@ -96,6 +96,8 @@ public class SummaryDataAdapter extends RecyclerView.Adapter<SummaryDataAdapter.
             else{
                 viewHolder.daysGain.setTextColor(Color.parseColor("#AB1711"));
                 viewHolder.daysGain.setText("" +summaryData.getDg() + "");
+                viewHolder.markerIcon.setImageResource(R.drawable.arrow_down);
+
                 viewHolder.daysGainPer.setTextColor(Color.parseColor("#AB1711"));
                 viewHolder.llGain.setBackground(ContextCompat.getDrawable(mContext, R.drawable.round_corner_ng));
 

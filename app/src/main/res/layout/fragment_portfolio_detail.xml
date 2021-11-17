@@ -26,13 +26,13 @@
             <androidx.appcompat.widget.SearchView
                 android:id="@+id/serachView"
                 android:backgroundTint="@color/light_gray"
-
+                android:focusable="true"
                 android:layout_marginVertical="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 app:defaultQueryHint="asdasdad"
-                app:queryHint="@string/app_name"
+                app:queryHint="@string/search_text"
                 android:background="@drawable/roundsearch"
                 app:layout_constraintTop_toTopOf="@+id/parent" />
 
@@ -81,7 +81,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Current Value"
-                         android:textColor="@color/title_color"
+                        android:textColor="@color/title_color"
 
                         app:layout_constraintTop_toTopOf="@+id/foliodetail"
                         tools:ignore="MissingConstraints" />
@@ -300,7 +300,7 @@
                 android:id="@+id/cardviewSummaryList"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                 android:background="@color/white"
+                android:background="@color/white"
 
                 app:cardCornerRadius="10dp"
                 android:textAllCaps="true"
@@ -314,7 +314,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingTop="10dp"
-                     android:paddingBottom="10dp">
+                    android:paddingBottom="10dp">
 
 
                     <View
@@ -512,7 +512,7 @@
                 android:id="@+id/cardviewStockList"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                 android:background="@color/white"
+                android:background="@color/white"
 
                 app:cardCornerRadius="10dp"
                 app:cardElevation="0dp"
@@ -666,7 +666,7 @@
                 android:layout_width="match_parent"
 
                 android:layout_height="wrap_content"
-                 android:background="@color/white"
+                android:background="@color/white"
 
                 app:cardCornerRadius="10dp"
                 app:cardElevation="0dp"
@@ -696,11 +696,11 @@
                         android:id="@+id/lblMFname"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-android:textSize="12sp"
+                        android:textSize="12sp"
                         android:text="Name"
                         android:layout_marginTop="10dp"
                         android:textAllCaps="true"
-android:layout_marginLeft="10dp"
+                        android:layout_marginLeft="10dp"
                         android:textColor="@color/title_color"
 
                         app:layout_constraintLeft_toLeftOf="parent"

@@ -26,4 +26,14 @@ public class PortfolioViewModel extends ViewModel {
             result.setValue(false);
        return result;
     }
+   /* public LiveData<Boolean> login(String username, String password) {
+        if(username.equalsIgnoreCase("tech@moneycorn.in") && password.equalsIgnoreCase("12345"))
+            result.setValue(true);
+        else
+            result.setValue(false);
+        return result;
+    }*/
+
+
+
 }
