@@ -17,6 +17,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
@@ -393,7 +394,6 @@ public class PortfolioDetailFragment extends Fragment implements View.OnClickLis
 
                     lltotalReturn.setBackgroundResource(R.drawable.round_corner_ng);
 
-                    lltotalReturn.setPadding(5,5,5,5);
                     growthMark.setImageResource(R.drawable.arrow_down);
 
 
@@ -403,10 +403,8 @@ public class PortfolioDetailFragment extends Fragment implements View.OnClickLis
                     valuetotalreturn.setText("400,000.00");
                     isTotalreturn = true;
                     sumCardTotalPercent.setText("26.45%");
-                    lltotalReturn.setPadding(5,5,5,5);
 
-
-                    sumCardTotalPercent.setTextColor(Color.parseColor("#177A3A"));
+                    sumCardTotalPercent.setTextColor(ContextCompat.getColor(view.getContext(),R.color.positive ));
 
                     lltotalReturn.setBackgroundResource(R.drawable.round_corner_positive);
                     growthMark.setImageResource(R.drawable.arrow_up);
