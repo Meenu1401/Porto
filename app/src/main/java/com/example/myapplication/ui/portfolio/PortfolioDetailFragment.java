@@ -4,6 +4,8 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -50,7 +52,7 @@ public class PortfolioDetailFragment extends Fragment implements View.OnClickLis
     private TextView currentvalue,totalreturn, lblAddtoPort,lblEditPOrt, daysGain, lvSummary, daysGainstock, lvStock, daysgainMf, lvMf;
     private boolean isCurrentvalue, isTotalreturn  , isSelectedSummaryGain, isSelectedStockGain, isSelectedMFGain, isSelectedSummaryLv, isSelectedStockLv, isSelectedMFLv;
 
-    private TextView currentvalueAmount, valuetotalreturn, sumCardTotalPercent,dateAndTime;
+    private TextView currentvalueAmount, valuetotalreturn, sumCardTotalPercent,dateAndTime,  tapDaysReturn,tapInvestText;
     private LinearLayout lltotalReturn, llValue,llGrowth;
     private ImageView growthMark;
 
@@ -126,16 +128,8 @@ public class PortfolioDetailFragment extends Fragment implements View.OnClickLis
         lltotalReturn = view.findViewById(R.id.lltotalReturn);
         growthMark = view.findViewById(R.id.growthMark);
 
-
-
-
-
-
-
-
-
-
-
+        tapDaysReturn= view.findViewById(R.id.tapDaysReturn);
+        tapInvestText= view.findViewById(R.id.tapInvestText);
 
 
         getTopTable();
@@ -384,8 +378,12 @@ public class PortfolioDetailFragment extends Fragment implements View.OnClickLis
                     currentvalue.setText("Current Value");
                     currentvalueAmount.setText("1,645,371");
 
+                    tapInvestText.setText("Tap for Invested Amount");
+
+
                     isCurrentvalue = false;
                 } else {
+                    tapInvestText.setText("Tap for Current Value");
 
                     currentvalue.setText("Invested Amount");
                     currentvalueAmount.setText("1,273,184");
@@ -407,12 +405,12 @@ public class PortfolioDetailFragment extends Fragment implements View.OnClickLis
 
                     lltotalReturn.setBackgroundResource(R.drawable.round_corner_positive);
                     growthMark.setImageResource(R.drawable.arrow_up);
-
-
+                    tapDaysReturn.setText("Tap for Day's Return");
 
                     isTotalreturn = false;
                 } else {
 
+                    tapDaysReturn.setText("Tap for Total Return");
 
                     totalreturn.setText("Day's Return");
                     valuetotalreturn.setText("-367.55");
